@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_marginTop="5dp"
+    android:background="#85673AB7"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtLutemonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtLutemonColour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Colour" />
+
+        <TextView
+            android:id="@+id/txtLutemonAttack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attack" />
+
+        <TextView
+            android:id="@+id/txtLutemonDefense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Defense" />
+
+        <TextView
+            android:id="@+id/txtLutemonHealth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Health" />
+
+        <TextView
+            android:id="@+id/txtLutemonExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Experience" />
+    </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

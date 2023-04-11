@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/createNewLutemonButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Create new lutemon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/listLutemonsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="List lutemons"
+        app:layout_constraintEnd_toEndOf="@+id/createNewLutemonButton"
+        app:layout_constraintStart_toStartOf="@+id/createNewLutemonButton"
+        app:layout_constraintTop_toBottomOf="@+id/createNewLutemonButton" />
+
+    <Button
+        android:id="@+id/loadLutemonsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Load lutemons"
+        app:layout_constraintTop_toBottomOf="@+id/listLutemonsButton"
+        tools:layout_editor_absoluteX="128dp" />
+
+    <Button
+        android:id="@+id/saveLutemonsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save lutemons"
+        app:layout_constraintEnd_toEndOf="@+id/loadLutemonsButton"
+        app:layout_constraintStart_toStartOf="@+id/loadLutemonsButton"
+        app:layout_constraintTop_toBottomOf="@+id/loadLutemonsButton" />
+
+    <Button
+        android:id="@+id/trainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Train"
+        app:layout_constraintEnd_toEndOf="@+id/saveLutemonsButton"
+        app:layout_constraintStart_toStartOf="@+id/saveLutemonsButton"
+        app:layout_constraintTop_toBottomOf="@+id/saveLutemonsButton" />
+
+    <Button
+        android:id="@+id/battleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Battle"
+        app:layout_constraintEnd_toEndOf="@+id/trainButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/trainButton"
+        app:layout_constraintTop_toBottomOf="@+id/trainButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
