@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
          */
     }
-
-    public static void menu(Scanner scan) {
+/*
+    public static void menu() {
 
         int i = 0;
         int x;
@@ -116,5 +116,5 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Kiitos ohjelman käytöstä.");
         scan.close();
     }
-
+*/
 }
