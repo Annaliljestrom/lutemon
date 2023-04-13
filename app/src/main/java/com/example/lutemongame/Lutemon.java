@@ -1,10 +1,12 @@
 package com.example.lutemongame;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Lutemon {
+public class Lutemon extends AppCompatActivity {
     private String name;
     private int attack;
     private int defence;
@@ -140,12 +142,13 @@ public class Lutemon {
     }
 
     public void createLutemon(Lutemon lutemon, Scanner scan, int id){
-        System.out.println("Give lutemon a name\n");
-        String name = scan.nextLine();
-        System.out.println("Mikä väri?\n 1) Valkoinen, 2) Vihreä, 3) Pinkki, 4) Oranssi, 5) Musta\n");
+
+        //System.out.println("Give lutemon a name\n");
+        //String name = scan.nextLine();
+        //System.out.println("Mikä väri?\n 1) Valkoinen, 2) Vihreä, 3) Pinkki, 4) Oranssi, 5) Musta\n");
         Integer c = Integer.parseInt(scan.nextLine());
         lutemon.chosenColorNumber(c);
-        System.out.println("väri on " + lutemon.getColor());
+        //System.out.println("väri on " + lutemon.getColor());
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
         lutemon.scoreReset();

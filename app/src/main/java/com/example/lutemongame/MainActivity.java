@@ -2,7 +2,9 @@ package com.example.lutemongame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Inventory.getInstance();
 
 
         System.out.println("Welcome to Lutemonland!");
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
          */
+    }
+
+    public void switchToCreateNewLutemon(View view){
+        Intent intent = new Intent(this, CreateNewLutemonActivity.class);
+        startActivity(intent);
+
     }
 /*
     public static void menu() {
