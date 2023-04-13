@@ -10,9 +10,9 @@ public class Inventory {
     private HashMap<String, Integer> backpack = new HashMap<String, Integer>();
     private ArrayList<String> itemList = new ArrayList<>();
 
-    public static ArrayList<Object> deadlutemons = new ArrayList<Object>();
+    public static ArrayList<Lutemon> deadlutemons = new ArrayList<Lutemon>();
 
-    public static ArrayList<Object> lutemons = new ArrayList<Object>();
+    public static ArrayList<Lutemon> lutemons = new ArrayList<Lutemon>();
     // "potion" = "23";
     public static Inventory getInstance() {
         if (inventory == null) {
@@ -51,6 +51,9 @@ public class Inventory {
 
     public ArrayList<String> getItemList() {
         return itemList;
+    }
+    public ArrayList<Lutemon> getLutemonsList() {
+        return lutemons;
     }
 
     public void addItem(String key) {
@@ -137,8 +140,9 @@ public class Inventory {
                 Integer selectedLutemon = Integer.parseInt(scan3.nextLine());
                 ((Lutemon) deadlutemons.get(selectedLutemon)).setHealth(( (Lutemon) deadlutemons.get(selectedLutemon)).getmaxHP()/2);
                 System.out.println("Lutemon is revived\n");
+                lutemons.add((Lutemon) deadlutemons.get(selectedLutemon));
                 deadlutemons.remove(selectedLutemon);
-                lutemons.add(selectedLutemon);
+
 
             } catch (NumberFormatException e) {
                 // TODO Auto-generated catch block
@@ -148,7 +152,7 @@ public class Inventory {
 
     }
 
-    public static ArrayList<Object> getLutemons(){
+    public static ArrayList<Lutemon> getLutemons(){
         return lutemons;
     }
 }

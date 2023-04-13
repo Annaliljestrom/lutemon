@@ -13,15 +13,23 @@ public class MainActivity extends AppCompatActivity {
     public static Inventory inventory = Inventory.getInstance();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Inventory.getInstance();
 
+        Button listLutemonsButton= findViewById(R.id.listLutemonsButton);
+        listLutemonsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                switchToCreateNewLutemon(view);
+            }
+        });
 
         System.out.println("Welcome to Lutemonland!");
+
+
         /*
         System.out.println("1) New Game\n2) Load Game\n");
         Integer gameMode = Integer.parseInt(scan.nextLine());
@@ -41,9 +49,18 @@ public class MainActivity extends AppCompatActivity {
          */
     }
 
+
     public void switchToCreateNewLutemon(View view){
         Intent intent = new Intent(this, CreateNewLutemonActivity.class);
         startActivity(intent);
+
+    }
+    public void switchToListLutemons(View view) {
+
+        Intent intent = new Intent(this, listLutemonsActivity.class);
+
+        startActivity(intent);
+
 
     }
 /*

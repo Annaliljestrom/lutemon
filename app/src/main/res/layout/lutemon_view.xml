@@ -9,7 +9,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/lutemonImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:srcCompat="@tools:sample/avatars" />
@@ -23,7 +23,7 @@
             android:id="@+id/txtLutemonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/Name"
             android:textSize="20sp" />
 
         <TextView
@@ -39,10 +39,10 @@
             android:text="Attack" />
 
         <TextView
-            android:id="@+id/txtLutemonDefense"
+            android:id="@+id/txtLutemonDefence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Defense" />
+            android:text="Defence" />
 
         <TextView
             android:id="@+id/txtLutemonHealth"
@@ -51,9 +51,9 @@
             android:text="Health" />
 
         <TextView
-            android:id="@+id/txtLutemonExperience"
+            android:id="@+id/txtLutemonLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Experience" />
+            android:text="Level" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

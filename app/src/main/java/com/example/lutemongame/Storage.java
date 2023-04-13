@@ -27,7 +27,7 @@ public class Storage {
 
     }
 
-    public void repunToiminnot(Storage s, Scanner scan, Lutemon l, ArrayList<Object> lutemons) {
+    public void repunToiminnot(Storage s, Scanner scan, Lutemon l, ArrayList<Lutemon> lutemons) {
         System.out.println("1) käytä esine 2) Palaa takaisin");
         Integer selectionreppu = Integer.parseInt(scan.nextLine());
 
