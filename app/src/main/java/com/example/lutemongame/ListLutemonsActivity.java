@@ -5,10 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-public class listLutemonsActivity extends AppCompatActivity {
+public class ListLutemonsActivity extends AppCompatActivity {
     private Inventory lutemons;
     private RecyclerView recyclerView;
 
@@ -21,11 +19,12 @@ public class listLutemonsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvLutemonList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new lutemonListAdapter(getApplicationContext(),lutemons.getLutemonsList()));
-
-
-
-
+        recyclerView.setAdapter(new lutemonListAdapter(getApplicationContext(),Inventory.getLutemons()));
+        listLutemons();
+    }
+    public void listLutemons() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new lutemonListAdapter(getApplicationContext(), lutemons.getLutemonsList()));
     }
 
 }
