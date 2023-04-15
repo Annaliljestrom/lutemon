@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListLutemonsActivity.class);
         startActivity(intent);
     }
+    public void switchToTrainLutemon(View view) {
+        Intent intent = new Intent(this, TrainLutemonActivity.class);
+        startActivity(intent);
+    }
 
 /*
     public static void menu() {
