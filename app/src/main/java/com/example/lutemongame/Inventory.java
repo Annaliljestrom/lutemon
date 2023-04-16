@@ -1,6 +1,7 @@
 package com.example.lutemongame;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,7 +14,6 @@ public class Inventory {
     public static ArrayList<Lutemon> deadlutemons = new ArrayList<Lutemon>();
 
     public static ArrayList<Lutemon> lutemons = new ArrayList<Lutemon>();
-    // "potion" = "23";
     public static Inventory getInstance() {
         if (inventory == null) {
             inventory = new Inventory();
@@ -153,6 +153,9 @@ public class Inventory {
     }
 
     public static ArrayList<Lutemon> getLutemons(){
+        return lutemons;
+    }
+    public static ArrayList<Lutemon> getDeadLutemons(){
         return lutemons;
     }
 }

@@ -1,5 +1,7 @@
 package com.example.lutemongame;
 
+import android.content.Context;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -150,6 +152,12 @@ public class Lutemon extends AppCompatActivity {
         //System.out.println("väri on " + lutemon.getColor());
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
+        Lutemon dummy = new Lutemon();
+        dummy.chosenColorNumber(6);
+        dummy.lutemon(dummy.getColor(), "Dummy", 0);
+        dummy.setHealth(0);
+        Inventory.deadlutemons.add(dummy);
+
         lutemon.scoreReset();
         id++;
     }

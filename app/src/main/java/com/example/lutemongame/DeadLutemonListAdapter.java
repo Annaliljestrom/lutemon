@@ -14,22 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> {
+public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> {
     private Context context;
 
     public Context getContext() {
         return context;
     }
 
-    public ArrayList<Lutemon> getLutemons() {
-        return lutemons;
+    public ArrayList<Lutemon> getDeadLutemons() {return deadLutemons;
     }
 
-    private ArrayList<Lutemon> lutemons ;
+    private ArrayList<Lutemon> deadLutemons = new ArrayList<Lutemon>();
 
-    public lutemonListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
+    public DeadLutemonListAdapter(Context applicationContext, ArrayList<Lutemon> deadlutemons) {
         this.context=applicationContext;
-        this.lutemons=lutemons;
+        this.deadLutemons=deadlutemons;
     }
 
 
@@ -42,7 +41,7 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull lutemonViewHolder holder, int position) {
-        Lutemon lutemon = lutemons.get(position);
+        Lutemon lutemon = deadLutemons.get(position);
 
 
         holder.lutemonName.setText(lutemon.getName());
@@ -55,6 +54,6 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     @Override
     public int getItemCount() {
-        return Inventory.getLutemons().size();
+        return deadLutemons.size();
     }
 }

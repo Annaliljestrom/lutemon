@@ -1,13 +1,15 @@
 package com.example.lutemongame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Scanner;
+import com.example.lutemongame.fragments.FragmentAlive;
+import com.example.lutemongame.fragments.FragmentDead;
 
 public class MainActivity extends AppCompatActivity {
     public static Inventory inventory = Inventory.getInstance();
@@ -17,34 +19,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Inventory.getInstance();
+        Button fragmentTAB = findViewById(R.id.listLutemonsButton);
+        fragmentTAB.setOnClickListener(listener);
 
-        /*
-        System.out.println("1) New Game\n2) Load Game\n");
-        Integer gameMode = Integer.parseInt(scan.nextLine());
+    }
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Fragment fragment;
 
-        switch (gameMode) {
-            case 1:
-                menu(scan);
-                break;
-            case 2:
-                //load game here
-                break;
-            default:
-                System.out.println("Invalid selection");
-                break;
+            switch (view.getId()) {
+
+                case R.id.listLutemonsButton:
+                    Intent intent = new Intent(view.getContext(), TabActivity.class);
+                    startActivity(intent);
+                    return;
+
+                default:
+                    fragment = new FragmentAlive();
+                    break;
+            }
         }
-
-         */
-    }
+    };
 
 
-    public void switchToCreateNewLutemon(View view){
+
+
+            public void switchToCreateNewLutemon(View view){
         Intent intent = new Intent(this, CreateNewLutemonActivity.class);
-        startActivity(intent);
-    }
-    public void switchToListLutemons(View view) {
-        Intent intent = new Intent(this, ListLutemonsActivity.class);
         startActivity(intent);
     }
     public void switchToTrainLutemon(View view) {
