@@ -55,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TrainLutemonActivity.class);
         startActivity(intent);
     }
+    public void switchToSaveLutemons(){
+        //Ella tänne, voit samalla tapaa kun tossa ylempänä tehä oman näkymän.
+        //tähän tyyliin saat dataa ulos.
+        //tallennus oli vissiin käyty luennoilla läpi tai sit vaan tekstitiedostoon kaikki statit josta
+        // sit lukee toisella ohjelmalla ne. Samalla lailla ku C:n harkkatyössä siis.
+        Inventory.getLutemons().get(0).getName();
+
+
+    }
+    public void switchToLoadLutemons(){
+              //Ella tänne
+    }
 
 /*
     public static void menu() {
