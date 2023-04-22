@@ -39,7 +39,6 @@ public class CreateNewLutemonActivity extends AppCompatActivity {
                 lutemon.createLutemon(lutemon,name,id);
                 setContentView(R.layout.activity_main);
                 startActivity(intent);
-
                 break;
             case R.id.greenButton:
                 lutemon.setColor(Lutemon.ColorType.GREEN);

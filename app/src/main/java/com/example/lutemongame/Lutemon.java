@@ -255,7 +255,6 @@ public class Lutemon extends AppCompatActivity {
 
     public Integer getAbilityDamage(int valinta){
         String abilityName = abilitiesList.get(valinta);
-
         return abilitiesMap.get(abilityName);
     }
     public String getAbilityName(int valinta){
