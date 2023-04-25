@@ -9,8 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lutemongame.Battle.BattleTabActivity1;
+import com.example.lutemongame.Battle.TrainLutemonActivity;
 import com.example.lutemongame.fragments.FragmentAlive;
-import com.example.lutemongame.fragments.FragmentDead;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -65,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchToTrainLutemon(View view) {
         Intent intent = new Intent(this, TrainLutemonActivity.class);
+        startActivity(intent);
+    }
+    public void switchToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void switchToBattleActivity(View view) {
+        Intent intent = new Intent(this, BattleTabActivity1.class);
         startActivity(intent);
     }
 

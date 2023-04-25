@@ -1,5 +1,8 @@
 package com.example.lutemongame;
 
+import com.example.lutemongame.Inventory;
+import com.example.lutemongame.Lutemon;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatCalculations {

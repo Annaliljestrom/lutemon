@@ -1,20 +1,21 @@
-package com.example.lutemongame;
+package com.example.lutemongame.Battle;
 
 import static android.app.PendingIntent.getActivity;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.lutemongame.Inventory;
+import com.example.lutemongame.Lutemon;
+import com.example.lutemongame.R;
 
 import java.util.ArrayList;
 
-public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> {
+public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
     private Context context;
 
     public Context getContext() {
@@ -27,7 +28,7 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     private ArrayList<Lutemon> lutemons ;
 
-    public lutemonListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
+    public BattleListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
         this.context=applicationContext;
         this.lutemons=lutemons;
     }
@@ -36,15 +37,16 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     @NonNull
     @Override
-    public lutemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new lutemonViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_view,parent,false));
+    public BattleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new BattleViewHolder(LayoutInflater.from(context).inflate(R.layout.battle_view_clickable,parent,false));
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull lutemonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BattleViewHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
-        //lutemonkohtainen kuva tähän
-        //holder.lutemonImage.setImageResource(R.drawable.starjoo);
+
+
         holder.lutemonName.setText(lutemon.getName());
         holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
         holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));

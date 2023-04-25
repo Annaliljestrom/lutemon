@@ -1,7 +1,9 @@
-package com.example.lutemongame;
+package com.example.lutemongame.Battle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.lutemongame.R;
 
 public class TrainLutemonActivity extends AppCompatActivity {
 

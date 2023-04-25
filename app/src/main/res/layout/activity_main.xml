@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:onClick="switchToBattleActivity"
         android:text="Battle"
         app:layout_constraintEnd_toEndOf="@+id/trainButton"
         app:layout_constraintHorizontal_bias="1.0"
