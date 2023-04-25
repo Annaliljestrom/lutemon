@@ -4,10 +4,11 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Lutemon extends AppCompatActivity {
+public class Lutemon extends AppCompatActivity implements Serializable {
     private String name;
     private int attack;
     private int defence;

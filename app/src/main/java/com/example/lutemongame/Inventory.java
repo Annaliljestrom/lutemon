@@ -1,5 +1,20 @@
 package com.example.lutemongame;
 
+import android.content.Context;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.HashMap;
@@ -114,7 +129,7 @@ public class Inventory {
             //getLutemons();
             //ArrayList <Object> lutemons;
             System.out.println("Select target");
-            Lutemon.listLutemons(getLutemons());
+            // Lutemon.listLutemons(getLutemons());
             Integer selectedLutemon = Integer.parseInt(scan2.nextLine());
             if ( healAmount <= ((Lutemon) lutemons.get(selectedLutemon)).getmaxHP() ){
                 ((Lutemon) lutemons.get(selectedLutemon)).setHealth(healAmount);
@@ -150,6 +165,87 @@ public class Inventory {
             }
         }
 
+    }
+
+    public void saveLutemons(Context context) {
+        try {
+            ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
+            fileWriter.writeObject(lutemons);
+            fileWriter.close();
+            System.out.println("Valmista tuli!");
+        } catch (IOException e) {
+            System.out.println("pieleen meni");
+        }
+
+        /* int listSize = lutemons.size();
+        System.out.println(Integer.toString(listSize));
+        int i = 0;
+        while (i < listSize) {
+            Lutemon lutemon = lutemons.get(i);
+            String lutemonName = lutemon.getName();
+            // String lutemonColorType = lutemon.getColor().toString();
+            String lutemonAttack = Integer.toString(lutemon.getAttack());
+            String lutemonDefece = Integer.toString(lutemon.getDefence());
+            String lutemonMaxHP = Integer.toString(lutemon.getmaxHP());
+            String lutemonExperience = Integer.toString(lutemon.getExperience());
+            String lutemonHealth = Integer.toString(lutemon.getHealth());
+            String lutemonTaso = Integer.toString(lutemon.getTaso());
+            FileOutputStream fileOut = null;
+            outputWrite
+            try {
+                fileOut = new FileOutputStream("savedLutemons.txt", true);
+                outputWrite = new OutputStreamWriter(fileOut, Charset.forName("UTF-16"));
+                BufferedWriter bw = new BufferedWriter(outputWrite);
+                // ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.txt",Context.MODE_APPEND));
+                bw.write("Lutemon " + lutemonName + ":\n- Väri: " + "\n- Hyökkäys: ");
+                        // + lutemonAttack + "\n- Puolustus: " + lutemonDefece + "\n- Maksimi elämäpisteet: "
+                        //+ lutemonMaxHP + "\n- Kokemus: " + lutemonExperience + "\n- Elämäpisteet: "
+                        // + lutemonHealth + "\n- Taso: " + lutemonTaso + "\n");
+                bw.flush();
+                bw.close();
+                // fileWriter.close();
+                System.out.println("Valmista tuli!");
+            } catch (IOException e) {
+                System.out.println("pieleen meni");
+            }
+            i++;
+        }*/
+    }
+
+    public void loadLutemons(Context context) {
+        try {
+            ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
+            lutemons = (ArrayList<Lutemon>) fileReader.readObject();
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Tiedostoa ei löytynyt.");
+        } catch (IOException e) {
+            System.out.println("Tiedoston lukeminen ei onnistunut.");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Tiedoston lukeminen ei onnistunut");
+        }
+
+        /*int i = 0;
+        while (true) {
+            try {
+                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedLutemons.txt"));
+                InputStreamReader inputRead = new InputStreamReader(fileIn);
+                BufferedReader fileReader = new BufferedReader(inputRead);
+                String nameLine = fileReader.readLine();
+                System.out.println(nameLine);
+                String[] separeted = nameLine.split(" ");
+                String lutemonName = separeted[1];
+                lutemonName.replace(":", "");
+                fileReader.close();
+                System.out.println("Valmista tuli");
+            } catch (FileNotFoundException e) {
+                System.out.println("Pieleen meni");
+            } catch (IOException e) {
+                System.out.println("Pieleen meni toisella tavalla");
+            }
+            i++;
+        }
+    }*/
     }
 
     public static ArrayList<Lutemon> getLutemons(){
