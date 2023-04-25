@@ -14,29 +14,29 @@ public class CombatArenas {
     public CombatArenas() {
     }
 
-//    public void trainingArena() {
-//
-////        Lutemon dummy = new Lutemon();
-////        dummy.chosenColorNumber(6);
-////        dummy.lutemon(dummy.getColor(), "Dummy", 0);
-//
-//        Lutemon lutemon1 = Inventory.getBattleLutemons().get(0);
-//        Lutemon lutemon2 = Inventory.getBattleLutemons().get(1);
-//
-//
-//
-//        boolean y = true;
-//        // taistelu
-//
-//        while (y == true) {
-//            String abilityName= "Nuijanukutus";
-//            lutemon.listAbilities();
-//            Integer valittuabilityName = Integer.parseInt(scan.nextLine());
-//
-//            switch (valittuabilityName){
+    public void trainingArena() {
+
+//        Lutemon dummy = new Lutemon();
+//        dummy.chosenColorNumber(6);
+//        dummy.lutemon(dummy.getColor(), "Dummy", 0);
+
+        Lutemon lutemon1 = Inventory.getBattleLutemons().get(0);
+        Lutemon lutemon2 = Inventory.getBattleLutemons().get(1);
+
+
+
+        boolean y = true;
+        // taistelu
+
+        while (y == true) {
+            String abilityName= "Nuijanukutus";
+            lutemon1.listAbilities();
+            ///Käyttäjän input ability tähän
+
+//            switch (chosenAbility){
 //                case 1:
-//                    lutemon.setAbilityDamage(lutemon.getAbilityDamage(valittuabilityName-1));
-//                    abilityName= lutemon.getAbilityName(valittuabilityName-1);
+//                    lutemon1.setAbilityDamage(lutemon1.getAbilityDamage(chosenAbility-1));
+//                    abilityName= lutemon1.getAbilityName(chosenAbility-1);
 //                    break;
 //                case 2:
 //                    Inventory.getInstance();
@@ -47,41 +47,41 @@ public class CombatArenas {
 //                    abilityName="Nuijanukutus";
 //
 //            }
-//            CombatCalculations.damageLutemon(lutemon, dummy);
-//            int damage = CombatCalculations.randomizeAttackDamage(CombatCalculations.damageLutemon(lutemon, dummy));
-//
-//            System.out.println(lutemon.getName() + " käyttää kyvyn '" + abilityName + "'! ");
-//            System.out.println(dummy.getName() + " ottaa " + damage + " verran vahinkoa");
-//            dummy.setHealth(dummy.getHealth() - damage);
-//            System.out.println(dummy.getName() + " nykyinen HP on " + dummy.getHealth() + "/" + dummy.getmaxHP());
-//            if (dummy.getHealth() <= 0 || lutemon.getHealth() <= 0) {
-//                y = false;
-//                CombatCalculations.checkIfAlive(lutemon, dummy);
-//                break;
-//            }
-//            int damage2 = CombatCalculations.randomizeAttackDamage(CombatCalculations.damageLutemon(dummy, lutemon));
-//
-//            System.out.println(dummy.getName() + " Käyttää kyvyn 'Trash Talk'");
-//            System.out.println(lutemon.getName() + " on melkein immuuni kyvylle");
-//            System.out.println(lutemon.getName() + " ottaa " + damage2 + " verran vahinkoa");
-//            lutemon.setHealth(lutemon.getHealth() - damage2);
-//            System.out.println(
-//                    lutemon.getName() + " nykyinen HP on " + lutemon.getHealth() + "/" + lutemon.getmaxHP() + "\n");
-//
-//            if (dummy.getHealth() <= 0 || lutemon.getHealth() <= 0) {
-//                y = false;
-//                CombatCalculations.checkIfAlive(lutemon, dummy);
-//                break;
-//            }
-//
-//        }
-//        System.out.println("1) Taistele uudestaan 2) Palaa takaisin kotiin\n");
-//        Integer v = Integer.parseInt(scan.nextLine());
-//
+            CombatCalculations.damageLutemon(lutemon1, lutemon2);
+            int damage = CombatCalculations.randomizeAttackDamage(CombatCalculations.damageLutemon(lutemon1, lutemon2));
+
+            System.out.println(lutemon1.getName() + " käyttää kyvyn '" + abilityName + "'! ");
+            System.out.println(lutemon2.getName() + " ottaa " + damage + " verran vahinkoa");
+            lutemon2.setHealth(lutemon2.getHealth() - damage);
+            System.out.println(lutemon2.getName() + " nykyinen HP on " + lutemon2.getHealth() + "/" + lutemon2.getmaxHP());
+            if (lutemon2.getHealth() <= 0 || lutemon1.getHealth() <= 0) {
+                y = false;
+                CombatCalculations.checkIfAlive(lutemon1, lutemon2);
+                break;
+            }
+            int damage2 = CombatCalculations.randomizeAttackDamage(CombatCalculations.damageLutemon(lutemon2, lutemon1));
+
+            System.out.println(lutemon2.getName() + " Käyttää kyvyn 'Trash Talk'");
+            System.out.println(lutemon1.getName() + " on melkein immuuni kyvylle");
+            System.out.println(lutemon1.getName() + " ottaa " + damage2 + " verran vahinkoa");
+            lutemon1.setHealth(lutemon1.getHealth() - damage2);
+            System.out.println(
+                    lutemon1.getName() + " nykyinen HP on " + lutemon1.getHealth() + "/" + lutemon1.getmaxHP() + "\n");
+
+            if (lutemon2.getHealth() <= 0 || lutemon1.getHealth() <= 0) {
+                y = false;
+                CombatCalculations.checkIfAlive(lutemon1, lutemon2);
+                break;
+            }
+
+        }
+        System.out.println("1) Taistele uudestaan 2) Palaa takaisin kotiin\n");
+        //Integer v = Integer.parseInt(scan.nextLine());
+
 //        switch (v) {
 //            case 1:
-//                if (lutemon.getHealth() > 0) {
-//                    CombatArenas.trainingArena(lutemon, scan);
+//                if (lutemon1.getHealth() > 0) {
+//                    trainingArena();
 //                } else {
 //                    System.out.println("Lutemon is dead, returning back to base\n");
 //                    return;
@@ -93,6 +93,6 @@ public class CombatArenas {
 //                break;
 //
 //        }
-//
-//    }
+
+    }
 }
