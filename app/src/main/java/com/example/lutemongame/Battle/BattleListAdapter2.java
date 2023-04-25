@@ -1,27 +1,27 @@
 package com.example.lutemongame.Battle;
 
-import static android.app.PendingIntent.getActivity;
+
 
 import static com.example.lutemongame.Inventory.battleLutemons;
-import static com.example.lutemongame.Inventory.lutemons;
+
 
 import android.content.Context;
-import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lutemongame.Inventory;
 import com.example.lutemongame.Lutemon;
+
 import com.example.lutemongame.R;
 
 import java.util.ArrayList;
 
-public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
+public class BattleListAdapter2 extends RecyclerView.Adapter<BattleViewHolder> {
     private Context context;
 
     public Context getContext() {
@@ -33,11 +33,11 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
     }
 
     private ArrayList<Lutemon> lutemons ;
-    Lutemon lutemon1;
+    Lutemon lutemon2;
     private int i=1;
     private Boolean savedLutemon1 = false, savedLutemon2 = false, fightStarted = false;
 
-    public BattleListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
+    public BattleListAdapter2(Context applicationContext, ArrayList<Lutemon> lutemons) {
         this.context=applicationContext;
         this.lutemons=lutemons;
     }
@@ -62,25 +62,27 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
 
+        if(holder.selectedLutemon != null) {
+            holder.selectedLutemon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        holder.selectedLutemon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Lutemon lutemon1 = lutemons.get(holder.getAdapterPosition());
-                if (battleLutemons.size() >= 1){
-                    battleLutemons.set(0,lutemon1);
-                }else {
-                    battleLutemons.add(0, lutemon1);
-                    System.out.println("Lutemon 1 valittu:" + lutemon1.getName());
-                    BattleTabActivity1.setFragmentTab1(1);
+                    Lutemon lutemon2 = lutemons.get(holder.getAdapterPosition());
+                    if (battleLutemons.size() >= 2){
+                        battleLutemons.set(1,lutemon2);
+                    }else{
+                        battleLutemons.add(1,lutemon2);
+                    System.out.println("Lutemon 2 valittu:" + lutemon2.getName());
+                    battleLutemons.set(1,lutemon2);
+                    }
                 }
-            };
 
 
-        });
+            });
+        }
 
     }
+
 
     @Override
     public int getItemCount() {

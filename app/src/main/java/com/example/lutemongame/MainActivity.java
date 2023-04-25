@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Battle.BattleTabActivity1;
 import com.example.lutemongame.Battle.TrainLutemonActivity;
 import com.example.lutemongame.fragments.FragmentAlive;
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchToTrainLutemon(View view) {
         Intent intent = new Intent(this, TrainLutemonActivity.class);
+        startActivity(intent);
+    }
+    public void switchToBattleFightActivity(View view) {
+        Intent intent = new Intent(this, BattleFightActivity.class);
         startActivity(intent);
     }
     public void switchToMainActivity(View view) {
