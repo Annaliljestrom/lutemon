@@ -73,10 +73,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BattleFightActivity.class);
         startActivity(intent);
     }
-    public void switchToMainActivity(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
     public void switchToBattleActivity(View view) {
         Intent intent = new Intent(this, BattleTabActivity1.class);
         startActivity(intent);
