@@ -19,6 +19,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int taso;
     private int abilityDamage;
     private ColorType Type;
+    protected int image;
     HashMap <String, Integer> abilitiesMap = new HashMap<>();
     private ArrayList<String> abilitiesList = new ArrayList<>();
 
@@ -33,8 +34,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         DUMMY,
         GYM,
     }
-
-
 
     public void scoreReset() {
         //more stats to be added here
@@ -62,6 +61,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
             Type = ColorType.DUMMY;
         }
         setColor(Type);
+        setImage(image);
 
         return;
     }
@@ -70,7 +70,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         // give different type of Lutemon2
         switch (Type) {
             case WHITE:
-
+                image = R.drawable.white2;
                 attack = 5;
                 defence = 4;
                 maxhp = 20;
@@ -81,7 +81,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 break;
 
             case BLACK:
-
+                image = R.drawable.black2;
                 attack = 9;
                 defence = 0;
                 maxhp = 16;
@@ -90,7 +90,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 break;
 
             case GREEN:
-
+                image = R.drawable.green2;
                 attack = 6;
                 defence = 3;
                 maxhp = 19;
@@ -99,7 +99,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 break;
 
             case PINK:
-
+                image = R.drawable.pink2;
                 attack = 7;
                 defence = 2;
                 maxhp = 18;
@@ -108,7 +108,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 break;
 
             case ORANGE:
-
+                image = R.drawable.orange2;
                 attack = 8;
                 defence = 1;
                 maxhp = 17;
@@ -117,7 +117,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 break;
 
             case DUMMY:
-
+                image = R.drawable.dummy2;
                 attack = 8;
                 defence = 2;
                 maxhp = 20;
@@ -153,6 +153,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         //System.out.println("väri on " + lutemon.getColor());
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
+
         Lutemon dummy = new Lutemon();
         dummy.chosenColorNumber(6);
         dummy.lutemon(dummy.getColor(), "Dummy", 0);
@@ -229,9 +230,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     }
 
     public void setColor(ColorType Type) {
-
         this.Type = Type;
-        ;
     }
 
     public int getStats(String key) {
@@ -289,7 +288,13 @@ public class Lutemon extends AppCompatActivity implements Serializable {
             }
         }catch(IndexOutOfBoundsException e){
         }
+    }
 
+    public int getImage() {
+        return image;
+    }
 
+    public void setImage(int image) {
+        this.image = image;
     }
 }
