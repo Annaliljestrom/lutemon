@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/create_lutemon">
 
     <RadioGroup
         android:id="@+id/colourCroup"
-        android:layout_width="235dp"
-        android:layout_height="258dp"
+        android:layout_width="305dp"
+        android:layout_height="240dp"
         android:layout_marginTop="24dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,41 +20,54 @@
             android:id="@+id/whiteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="White" />
+            android:text="White"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/greenButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Green" />
+            android:text="Green"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/pinkButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pink" />
+            android:text="Pink"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/orangeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Orange" />
+            android:text="Orange"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/blackButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Black" />
+            android:text="Black"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/lutemonNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="306dp"
+        android:layout_height="74dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="Enter Lutemon Name"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="#CCB5B5"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/colourCroup"
         app:layout_constraintStart_toStartOf="@+id/colourCroup"
         app:layout_constraintTop_toBottomOf="@+id/colourCroup" />
