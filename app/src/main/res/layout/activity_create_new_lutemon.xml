@@ -60,6 +60,7 @@
                 android:id="@+id/colourCroup"
                 android:layout_width="150dp"
                 android:layout_height="240dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,6 +112,7 @@
                 android:id="@+id/lutemonNameInput"
                 android:layout_width="306dp"
                 android:layout_height="74dp"
+                android:layout_marginStart="20dp"
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Enter Lutemon Name"
@@ -125,9 +127,11 @@
                 android:id="@+id/createLutemonButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:onClick="createLutemonType"
                 android:text="Create lutemon"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lutemonNameInput"
+                app:layout_constraintStart_toStartOf="@+id/lutemonNameInput"
                 app:layout_constraintTop_toBottomOf="@+id/lutemonNameInput" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
