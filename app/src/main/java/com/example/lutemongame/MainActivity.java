@@ -1,6 +1,7 @@
 package com.example.lutemongame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+
     public void switchToCreateNewLutemon(View view) {
         Intent intent = new Intent(this, CreateNewLutemonActivity.class);
         startActivity(intent);
@@ -77,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
     // sit lukee toisella ohjelmalla ne. Samalla lailla ku C:n harkkatyössä siis.
     // Inventory.getLutemons().get(0).getName();
 
-
     public void switchToLoadLutemons(View view) {
         Inventory.getInstance().loadLutemons(context);
     }
 }
+
     //Ella tänne
     //}
 

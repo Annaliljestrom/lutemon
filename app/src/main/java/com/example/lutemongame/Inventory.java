@@ -147,7 +147,7 @@ public class Inventory {
     }
     public void reviveLutemon( ){
         if (deadlutemons.isEmpty()){
-            System.out.println("No valid targets");
+            System.out.println("No valit targets");
         }
         else{
             try (Scanner scan3 = new Scanner(System.in)) {
@@ -171,10 +171,9 @@ public class Inventory {
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            fileWriter.writeObject(lutemons);
-            /* for (Lutemon lutemon : lutemons ) {
+            for (Lutemon lutemon : lutemons ) {
                 fileWriter.writeObject(lutemon);
-            }*/
+            }
             fileWriter.close();
             System.out.println("Valmista tuli!");
         } catch (IOException e) {
@@ -223,28 +222,20 @@ public class Inventory {
     public void loadLutemons(Context context) {
         try {
             ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
-            ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
-            int length = lutemonsToAdd.size();
-            int i = 0;
-            while (i < length) {
-                Lutemon lutemon = lutemonsToAdd.get(i);
-                lutemons.add(lutemon);
-                i++;
-            }
+            lutemons = (ArrayList<Lutemon>) fileReader.readObject();
             fileReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Tiedostoa ei löytynyt.");
         } catch (IOException e) {
             System.out.println("Tiedoston lukeminen ei onnistunut.");
         } catch (ClassNotFoundException e) {
-            System.out.println("Tiedoston lukeminen ei onnistunut.");
+            System.out.println("Tiedoston lukeminen ei onnistunut");
         }
-    }
 
         /*int i = 0;
         while (true) {
             try {
-                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedlutemons.txt"));
+                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedLutemons.txt"));
                 InputStreamReader inputRead = new InputStreamReader(fileIn);
                 BufferedReader fileReader = new BufferedReader(inputRead);
                 String nameLine = fileReader.readLine();
@@ -262,6 +253,7 @@ public class Inventory {
             i++;
         }
     }*/
+    }
 
     public static ArrayList<Lutemon> getLutemons(){
         return lutemons;
