@@ -154,12 +154,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
 
     public void createLutemon(Lutemon lutemon, String name, int id){
 
-        //System.out.println("Give lutemon a name\n");
-        //String name = scan.nextLine();
-        //System.out.println("Mikä väri?\n 1) Valkoinen, 2) Vihreä, 3) Pinkki, 4) Oranssi, 5) Musta\n");
-        //Integer c = Integer.parseInt(scan.nextLine());
-        //lutemon.chosenColorNumber(c);
-        //System.out.println("väri on " + lutemon.getColor());
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
 
@@ -167,6 +161,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         dummy.chosenColorNumber(6);
         dummy.lutemon(dummy.getColor(), "Dummy", 0);
         dummy.setHealth(0);
+        dummy.image = R.drawable.dummy_transparent;
         Inventory.deadlutemons.add(dummy);
 
         lutemon.scoreReset();
@@ -307,3 +302,4 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         this.image = image;
     }
 }
+
