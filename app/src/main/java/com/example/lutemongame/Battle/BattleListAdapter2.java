@@ -61,6 +61,7 @@ public class BattleListAdapter2 extends RecyclerView.Adapter<BattleViewHolder> {
         holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
+        holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
 
         if(holder.selectedLutemon != null) {
             holder.selectedLutemon.setOnClickListener(new View.OnClickListener() {
