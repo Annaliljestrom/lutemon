@@ -29,6 +29,7 @@ public class Inventory {
     public static ArrayList<Lutemon> deadlutemons = new ArrayList<Lutemon>();
 
     public static ArrayList<Lutemon> lutemons = new ArrayList<Lutemon>();
+    public static ArrayList<Lutemon> battleLutemons = new ArrayList<Lutemon>();
     public static Inventory getInstance() {
         if (inventory == null) {
             inventory = new Inventory();
@@ -170,7 +171,9 @@ public class Inventory {
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            fileWriter.writeObject(lutemons);
+            for (Lutemon lutemon : lutemons ) {
+                fileWriter.writeObject(lutemon);
+            }
             fileWriter.close();
             System.out.println("Valmista tuli!");
         } catch (IOException e) {
@@ -210,6 +213,10 @@ public class Inventory {
             }
             i++;
         }*/
+    }
+
+    public static ArrayList<Lutemon> getBattleLutemons() {
+        return battleLutemons;
     }
 
     public void loadLutemons(Context context) {

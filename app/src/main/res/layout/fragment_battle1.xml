@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentAlive"
-    android:background="@drawable/alivelutemonsbackground">
+    tools:context=".fragments.FragmentBattle1"
+    android:background="@drawable/battlebackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,9 +15,12 @@
             android:id="@+id/rvLutemonList"
             android:layout_width="409dp"
             android:layout_height="729dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="-1dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

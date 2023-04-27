@@ -12,9 +12,6 @@
         android:theme="@style/Theme.LutemonGame"
         tools:targetApi="31">
         <activity
-            android:name=".BattleLutemonActivity"
-            android:exported="false" />
-        <activity
             android:name=".TabActivity"
             android:exported="false" />
         <activity

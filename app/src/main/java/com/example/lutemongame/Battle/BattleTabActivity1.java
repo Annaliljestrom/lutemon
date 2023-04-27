@@ -1,29 +1,23 @@
-package com.example.lutemongame;
+package com.example.lutemongame.Battle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TableLayout;
 
+import com.example.lutemongame.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class TabActivity extends AppCompatActivity {
-
+public class BattleTabActivity1 extends AppCompatActivity {
+    public static ViewPager2 fragmentArea;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab);
-
-
+        setContentView(R.layout.activity_battle_choose_lutemons);
         TabLayout tabLayout = findViewById(R.id.TabArea);
-        ViewPager2 fragmentArea = findViewById(R.id.fragmentArea);
-        TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this);
-        fragmentArea.setAdapter(tabPagerAdapter);
-
+        fragmentArea =  findViewById(R.id.fragmentArea);
+        TabPagerAdapterBattle tabPagerAdapterBattle = new TabPagerAdapterBattle(this);
+        fragmentArea.setAdapter(tabPagerAdapterBattle);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -40,22 +34,21 @@ public class TabActivity extends AppCompatActivity {
 
             }
         });
-
         fragmentArea.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void onPageSelected(int position) {
+            public void onPageSelected(int position){
                 super.onPageSelected(position);
                 tabLayout.getTabAt(position).select();
+
             }
         });
 
-
-
-
     }
-    public void switchToMainActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+
+
+    public static void setFragmentTab1(int j) {
+        fragmentArea.setCurrentItem(1);
     }
+
 
 }

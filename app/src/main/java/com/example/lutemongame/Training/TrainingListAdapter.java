@@ -1,6 +1,5 @@
-package com.example.lutemongame;
+package com.example.lutemongame.Training;
 
-import static android.app.PendingIntent.getActivity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,12 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lutemongame.Inventory;
+import com.example.lutemongame.Lutemon;
+import com.example.lutemongame.R;
+
 import java.util.ArrayList;
 
-public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> {
+public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder> {
     private Context context;
 
     public Context getContext() {
@@ -26,8 +30,11 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
     }
 
     private ArrayList<Lutemon> lutemons ;
+    Lutemon lutemon1;
+    private int i=1;
 
-    public lutemonListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
+
+    public TrainingListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
         this.context=applicationContext;
         this.lutemons=lutemons;
     }
@@ -36,12 +43,13 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     @NonNull
     @Override
-    public lutemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new lutemonViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_view,parent,false));
+    public TrainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new TrainingViewHolder(LayoutInflater.from(context).inflate(R.layout.battle_view_clickable,parent,false));
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull lutemonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TrainingViewHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
 
         holder.lutemonName.setText(lutemon.getName());
@@ -52,10 +60,27 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
         holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
 
+
+        holder.selectedLutemon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                lutemon1 = lutemons.get(holder.getAdapterPosition());
+                TrainingActivity.GG();
+            };
+
+
+        });
+
     }
+
+
 
     @Override
     public int getItemCount() {
         return Inventory.getLutemons().size();
     }
+
 }
+
+

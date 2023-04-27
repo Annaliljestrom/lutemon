@@ -1,5 +1,8 @@
 package com.example.lutemongame;
 
+import com.example.lutemongame.Inventory;
+import com.example.lutemongame.Lutemon;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatCalculations {
@@ -167,7 +170,7 @@ public class CombatCalculations {
 
             System.out.println(lutemon.getName() + " is dead and needs to be revived");
             // add method to add dead lutemon to deadlutemons array list and function how to
-            // revie that lutemon and restore stats??
+            // revive that lutemon and restore stats??
 
             boolean y = false;
             return y;

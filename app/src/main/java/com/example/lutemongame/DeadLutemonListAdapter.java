@@ -50,6 +50,7 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
         holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
+        holder.lutemonImage.setImageResource(deadLutemons.get(position).getImage());
     }
 
     @Override

@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:fadingEdge="none"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/createNewLutemonButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_width="280dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/bordered_button"
         android:onClick="switchToCreateNewLutemon"
         android:text="Create new lutemon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:icon="@drawable/ic_launcher_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,56 +25,63 @@
         android:id="@+id/listLutemonsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:onClick="switchToListLutemons"
         android:text="List lutemons"
-        app:layout_constraintEnd_toEndOf="@+id/createNewLutemonButton"
-        app:layout_constraintStart_toStartOf="@+id/createNewLutemonButton"
-        app:layout_constraintTop_toBottomOf="@+id/createNewLutemonButton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loadLutemonsButton"
+        android:background="@drawable/bordered_button"/>
 
     <Button
         android:id="@+id/loadLutemonsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:onClick="switchToLoadLutemons"
         android:text="Load lutemons"
-        app:layout_constraintEnd_toEndOf="@+id/listLutemonsButton"
-        app:layout_constraintStart_toStartOf="@+id/listLutemonsButton"
-        app:layout_constraintTop_toBottomOf="@+id/listLutemonsButton" />
+        app:icon="@android:drawable/ic_menu_upload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createNewLutemonButton"
+        android:background="@drawable/bordered_button"/>
 
     <Button
         android:id="@+id/saveLutemonsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bordered_button"
         android:onClick="switchToSaveLutemons"
         android:text="Save lutemons"
-        app:layout_constraintEnd_toEndOf="@+id/loadLutemonsButton"
-        app:layout_constraintStart_toStartOf="@+id/loadLutemonsButton"
-        app:layout_constraintTop_toBottomOf="@+id/loadLutemonsButton" />
+        app:icon="@android:drawable/ic_menu_save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listLutemonsButton" />
 
     <Button
         android:id="@+id/trainButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="143dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordered_button"
         android:onClick="switchToTrainLutemon"
-        android:text="Train"
-        app:layout_constraintEnd_toEndOf="@+id/saveLutemonsButton"
-        app:layout_constraintStart_toStartOf="@+id/saveLutemonsButton"
-        app:layout_constraintTop_toBottomOf="@+id/saveLutemonsButton" />
+        android:text="Training"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/battleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bordered_button"
+        android:onClick="switchToBattleActivity"
         android:text="Battle"
         app:layout_constraintEnd_toEndOf="@+id/trainButton"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/trainButton"
+        app:layout_constraintStart_toEndOf="@+id/saveLutemonsButton"
         app:layout_constraintTop_toBottomOf="@+id/trainButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
