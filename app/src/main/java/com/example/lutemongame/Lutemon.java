@@ -20,6 +20,10 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int abilityDamage;
     private ColorType Type;
     protected int image;
+    private int battles;
+    private int trainingDays;
+    private int victories;
+    private int defeats;
     HashMap <String, Integer> abilitiesMap = new HashMap<>();
     private ArrayList<String> abilitiesList = new ArrayList<>();
 
@@ -173,6 +177,19 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                     "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName() + "\n");
         }
     }
+    public void addNewBattle() {
+        battles = battles + 1;
+    }
+    public void addNewTrainingDay() {
+        trainingDays = trainingDays + 1;
+    }
+    public void addNewVictory() {
+        victories = victories + 1;
+    }
+    public void addNewDefeat() {
+        defeats = defeats + 1;
+    }
+
 
     public void setHealth(int health) {
         this.health = health;
@@ -297,9 +314,13 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     public int getImage() {
         return image;
     }
-
     public void setImage(int image) {
         this.image = image;
     }
+    public int getBattles() { return battles; }
+    public int getTrainingDays() { return trainingDays; }
+    public int getVictories() { return victories; }
+    public int getDefeats() { return defeats; }
+
 }
 

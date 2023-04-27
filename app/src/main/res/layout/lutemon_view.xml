@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="225dp"
     android:layout_marginTop="12dp"
     android:background="@android:color/transparent"
     android:orientation="horizontal">
@@ -60,6 +60,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Level"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtLutemonBattles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Battles"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtLutemonTrainingDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Training Days"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtLutemonVictories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Victories"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtLutemonDefeats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Defeats"
             android:textSize="16sp" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-
-
     public void switchToCreateNewLutemon(View view) {
         Intent intent = new Intent(this, CreateNewLutemonActivity.class);
         startActivity(intent);
