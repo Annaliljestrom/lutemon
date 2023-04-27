@@ -1,18 +1,15 @@
-package com.example.lutemongame.Battle;
+package com.example.lutemongame.Training;
 
-import static android.app.PendingIntent.getActivity;
-
-import static com.example.lutemongame.Inventory.battleLutemons;
-import static com.example.lutemongame.Inventory.lutemons;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lutemongame.Inventory;
@@ -21,7 +18,7 @@ import com.example.lutemongame.R;
 
 import java.util.ArrayList;
 
-public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
+public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder> {
     private Context context;
 
     public Context getContext() {
@@ -34,9 +31,10 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
 
     private ArrayList<Lutemon> lutemons ;
     Lutemon lutemon1;
+    private int i=1;
 
 
-    public BattleListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
+    public TrainingListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {
         this.context=applicationContext;
         this.lutemons=lutemons;
     }
@@ -45,13 +43,13 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
 
     @NonNull
     @Override
-    public BattleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new BattleViewHolder(LayoutInflater.from(context).inflate(R.layout.battle_view_clickable,parent,false));
+    public TrainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new TrainingViewHolder(LayoutInflater.from(context).inflate(R.layout.battle_view_clickable,parent,false));
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull BattleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TrainingViewHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
 
         holder.lutemonName.setText(lutemon.getName());
@@ -67,14 +65,8 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
             @Override
             public void onClick(View view) {
 
-                Lutemon lutemon1 = lutemons.get(holder.getAdapterPosition());
-                if (battleLutemons.size() >= 1){
-                    battleLutemons.set(0,lutemon1);
-                }else {
-                    battleLutemons.add(0, lutemon1);
-                    System.out.println("Lutemon 1 valittu:" + lutemon1.getName());
-                    BattleTabActivity1.setFragmentTab1(1);
-                }
+                lutemon1 = lutemons.get(holder.getAdapterPosition());
+                TrainingActivity.GG();
             };
 
 
@@ -82,10 +74,13 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return Inventory.getLutemons().size();
     }
 
 }
+
 

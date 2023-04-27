@@ -12,6 +12,9 @@
         android:theme="@style/Theme.LutemonGame"
         tools:targetApi="31">
         <activity
+            android:name=".Training.TrainingActivity"
+            android:exported="false" />
+        <activity
             android:name=".Battle.BattleFightActivity"
             android:exported="false" />
         <activity
@@ -19,9 +22,6 @@
             android:exported="false" />
         <activity
             android:name=".TabActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Battle.TrainLutemonActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,14 +1,5 @@
 package com.example.lutemongame;
 
-import android.content.Intent;
-import android.view.View;
-
-import com.example.lutemongame.Battle.BattleFightActivity;
-import com.example.lutemongame.Battle.BattleTabActivity1;
-import com.example.lutemongame.Battle.TrainLutemonActivity;
-
-import java.util.Scanner;
-
 public class CombatArenas {
 
     public CombatArenas() {

@@ -52,38 +52,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bordered_button"
         android:onClick="switchToSaveLutemons"
         android:text="Save lutemons"
         app:icon="@android:drawable/ic_menu_save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listLutemonsButton"
-        android:background="@drawable/bordered_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/listLutemonsButton" />
 
     <Button
         android:id="@+id/trainButton"
         android:layout_width="143dp"
         android:layout_height="92dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordered_button"
         android:onClick="switchToTrainLutemon"
-        android:text="Train"
+        android:text="Training"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bordered_button"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/battleButton"
         android:layout_width="140dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bordered_button"
         android:onClick="switchToBattleActivity"
         android:text="Battle"
         app:layout_constraintEnd_toEndOf="@+id/trainButton"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/trainButton"
-        app:layout_constraintTop_toBottomOf="@+id/trainButton"
-        />
+        app:layout_constraintStart_toEndOf="@+id/saveLutemonsButton"
+        app:layout_constraintTop_toBottomOf="@+id/trainButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

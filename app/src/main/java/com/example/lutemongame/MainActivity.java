@@ -11,16 +11,8 @@ import android.widget.Button;
 
 import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Battle.BattleTabActivity1;
-import com.example.lutemongame.Battle.TrainLutemonActivity;
+import com.example.lutemongame.Training.TrainingActivity;
 import com.example.lutemongame.fragments.FragmentAlive;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static Inventory inventory = Inventory.getInstance();
@@ -35,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Inventory.getInstance();
         Button fragmentTAB = findViewById(R.id.listLutemonsButton);
         fragmentTAB.setOnClickListener(listener);
-
         context = this;
 
     }
@@ -66,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void switchToTrainLutemon(View view) {
-        Intent intent = new Intent(this, TrainLutemonActivity.class);
+        Intent intent = new Intent(this, TrainingActivity.class);
         startActivity(intent);
     }
     public void switchToBattleFightActivity(View view) {
