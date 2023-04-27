@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/create_lutemon">
+    android:background="@drawable/create_lutemon2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_height="48dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                app:srcCompat="@drawable/pinky" />
+                app:srcCompat="@drawable/pink_transparent" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -30,7 +30,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/white" />
+                app:srcCompat="@drawable/white_transparent" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -38,7 +38,7 @@
                 android:layout_height="49dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
-                app:srcCompat="@drawable/green" />
+                app:srcCompat="@drawable/green_transparent" />
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -46,7 +46,7 @@
                 android:layout_height="48dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/orange_transparent" />
 
             <ImageView
                 android:id="@+id/imageView7"
@@ -54,7 +54,7 @@
                 android:layout_height="46dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6"
-                app:srcCompat="@drawable/black" />
+                app:srcCompat="@drawable/black_transparent" />
 
             <RadioGroup
                 android:id="@+id/colourCroup"

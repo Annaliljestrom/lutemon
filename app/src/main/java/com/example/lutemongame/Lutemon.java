@@ -70,54 +70,63 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         // give different type of Lutemon2
         switch (Type) {
             case WHITE:
-                image = R.drawable.white2;
+                image = R.drawable.white_transparent;
                 attack = 5;
                 defence = 4;
                 maxhp = 20;
                 health = 20;
                 taso = 0;
-                abilitiesMap.put("Nuijanukutus", 5);
+                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Poisonous fart", 5);
                 //abilitiesMap.put("Sleep", 10);
                 break;
 
             case BLACK:
-                image = R.drawable.black2;
+                image = R.drawable.black_transparent;
                 attack = 9;
                 defence = 0;
                 maxhp = 16;
                 health = 16;
                 taso = 0;
+                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Disruptive meme", 5);
                 break;
 
             case GREEN:
-                image = R.drawable.green2;
+                image = R.drawable.green_transparent;
                 attack = 6;
                 defence = 3;
                 maxhp = 19;
                 health = 19;
                 taso = 0;
+                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Awkward stare", 5);
                 break;
 
             case PINK:
-                image = R.drawable.pink2;
+                image = R.drawable.pink_transparent;
                 attack = 7;
                 defence = 2;
                 maxhp = 18;
                 health = 18;
                 taso = 0;
+                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Fit of rage", 5);
                 break;
 
             case ORANGE:
-                image = R.drawable.orange2;
+                image = R.drawable.orange_transparent;
                 attack = 8;
                 defence = 1;
                 maxhp = 17;
                 health = 17;
                 taso = 0;
+                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Infectious bite of syphilis", 5);
                 break;
 
             case DUMMY:
-                image = R.drawable.dummy2;
+                image = R.drawable.dummy_transparent;
                 attack = 8;
                 defence = 2;
                 maxhp = 20;
