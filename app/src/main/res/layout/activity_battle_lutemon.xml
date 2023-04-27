@@ -10,42 +10,108 @@
         android:id="@+id/lutemonImage1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/swordImage"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/battleTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/lutemonImage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/battleTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toEndOf="@+id/swordImage"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/swordImage"
         android:layout_width="117dp"
         android:layout_height="124dp"
-        android:layout_marginTop="228dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/lutemonImage2"
+        app:layout_constraintStart_toEndOf="@+id/lutemonImage1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sword_image" />
 
     <TextView
         android:id="@+id/battleTextView"
-        android:layout_width="317dp"
-        android:layout_height="298dp"
+        android:layout_width="376dp"
+        android:layout_height="403dp"
+        android:layout_marginBottom="24dp"
         android:text="..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:layout_width="34dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/battleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseAbilityView">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/chooseAbilityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Choose ability"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swordImage" />
+
+    <TextView
+        android:id="@+id/abilityViewMeatMallet"
+        android:layout_width="186dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="136dp"
+        android:text="Meat Mallet"
+        app:layout_constraintBottom_toTopOf="@+id/abilityViewSpecialAbility"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseAbilityView"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <TextView
+        android:id="@+id/abilityViewSpecialAbility"
+        android:layout_width="185dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/battleTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/fightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:text="Fight"
+        app:layout_constraintBottom_toTopOf="@+id/battleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lutemonImage2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
