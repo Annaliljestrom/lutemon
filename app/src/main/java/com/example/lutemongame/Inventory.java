@@ -215,20 +215,28 @@ public class Inventory {
     public void loadLutemons(Context context) {
         try {
             ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
-            lutemons = (ArrayList<Lutemon>) fileReader.readObject();
+            ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
+            int length = lutemonsToAdd.size();
+            int i = 0;
+            while (i < length) {
+                Lutemon lutemon = lutemonsToAdd.get(i);
+                lutemons.add(lutemon);
+                i++;
+            }
             fileReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Tiedostoa ei löytynyt.");
         } catch (IOException e) {
             System.out.println("Tiedoston lukeminen ei onnistunut.");
         } catch (ClassNotFoundException e) {
-            System.out.println("Tiedoston lukeminen ei onnistunut");
+            System.out.println("Tiedoston lukeminen ei onnistunut.");
         }
+    }
 
         /*int i = 0;
         while (true) {
             try {
-                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedLutemons.txt"));
+                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedlutemons.txt"));
                 InputStreamReader inputRead = new InputStreamReader(fileIn);
                 BufferedReader fileReader = new BufferedReader(inputRead);
                 String nameLine = fileReader.readLine();
@@ -246,7 +254,6 @@ public class Inventory {
             i++;
         }
     }*/
-    }
 
     public static ArrayList<Lutemon> getLutemons(){
         return lutemons;
