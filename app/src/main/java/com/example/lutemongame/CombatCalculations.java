@@ -100,7 +100,7 @@ public class CombatCalculations {
 
     public static int setDefenceRoll(Lutemon defender) {
         // setting defence number to random from 0 to defender defence
-        defenceRoll = ThreadLocalRandom.current().nextInt(1, defender.getDefence());
+        defenceRoll = ThreadLocalRandom.current().nextInt(1, defender.getDefence()+1);
 
         return defenceRoll;
     }
