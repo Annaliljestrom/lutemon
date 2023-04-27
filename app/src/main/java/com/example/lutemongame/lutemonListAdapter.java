@@ -51,8 +51,7 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
-        System.out.println("LUE MINUT");
-        System.out.println(lutemons.get(position).getImage());
+
     }
 
     @Override

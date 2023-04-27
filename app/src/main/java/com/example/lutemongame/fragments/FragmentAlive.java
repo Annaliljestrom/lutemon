@@ -35,6 +35,7 @@ public class FragmentAlive extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new lutemonListAdapter(getContext(), lutemons);
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 }
