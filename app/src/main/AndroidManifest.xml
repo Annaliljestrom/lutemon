@@ -18,7 +18,13 @@
             android:name=".TabActivity"
             android:exported="false" />
         <activity
-            android:name=".TrainLutemonActivity"
+            android:name=".Training.TrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Battle.BattleFightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Battle.BattleTabActivity1"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
