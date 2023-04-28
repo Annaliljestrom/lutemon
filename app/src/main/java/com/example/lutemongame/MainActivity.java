@@ -32,18 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Fragment fragment;
 
-            switch (view.getId()) {
-
-                case R.id.listLutemonsButton:
-                    Intent intent = new Intent(view.getContext(), TabActivity.class);
-                    startActivity(intent);
-                    return;
-
-                default:
-                    fragment = new FragmentAlive();
-                    break;
+            if (view.getId() == R.id.listLutemonsButton) {
+                Intent intent = new Intent(view.getContext(), TabActivity.class);
+                startActivity(intent);
+                return;
             }
         }
     };

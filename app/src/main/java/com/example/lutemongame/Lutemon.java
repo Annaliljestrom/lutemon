@@ -99,7 +99,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         setColor(Type);
         setImage(image);
 
-        return;
     }
 
     public void lutemon(ColorType Type, String name, int id) {
@@ -207,9 +206,9 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         id++;
     }
     public static void listLutemons(ArrayList<Lutemon> lutemons) {
-        for (Object lutemon: lutemons){
+        for (Lutemon lutemon: lutemons){
             System.out.println(
-                    "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName() + "\n");
+                    "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName() + "\n");
         }
     }
 
@@ -308,8 +307,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         return abilitiesMap.get(abilityName);
     }
     public String getAbilityName(int valinta){
-        String abilityName = abilitiesList.get(valinta);
-        return abilityName;
+        return abilitiesList.get(valinta);
     }
     public void setAbilityDamage(int abilityDamage){
         this.abilityDamage= abilityDamage;
@@ -321,22 +319,22 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         this.name=name;
     }
     public void printAllLutemonStats(){
-        for (Object lutemon: Inventory.lutemons){
+        for (Lutemon lutemon: Inventory.lutemons){
             System.out.println(
-                    "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName());
-            System.out.println("Attack = "+ ((Lutemon) lutemon).getAttack() + "\nDefence = " + ((Lutemon) lutemon).getDefence() + "\n" +"HP = "+
-                    ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getLevel()+"\n"
+                    "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName());
+            System.out.println("Attack = "+ lutemon.getAttack() + "\nDefence = " + lutemon.getDefence() + "\n" +"HP = "+
+                    lutemon.getHealth()+"/"+ lutemon.getmaxHP()+"\nLevel = " + lutemon.getLevel()+"\n"
             );
         }
         try{
-            for (Object lutemon: Inventory.deadLutemons){
+            for (Lutemon lutemon: Inventory.deadLutemons){
                 System.out.println(
-                        "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName());
-                System.out.println("Attack = "+ ((Lutemon) lutemon).getAttack() + "\nDefence = " + ((Lutemon) lutemon).getDefence() + "\n" +"HP = "+
-                        ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getLevel()+"\n"
+                        "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName());
+                System.out.println("Attack = "+ lutemon.getAttack() + "\nDefence = " + lutemon.getDefence() + "\n" +"HP = "+
+                        lutemon.getHealth()+"/"+ lutemon.getmaxHP()+"\nLevel = " + lutemon.getLevel()+"\n"
                 );
             }
-        }catch(IndexOutOfBoundsException e){
+        }catch(IndexOutOfBoundsException ignored){
         }
     }
 
