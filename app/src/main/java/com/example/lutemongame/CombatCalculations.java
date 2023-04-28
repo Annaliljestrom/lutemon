@@ -176,7 +176,7 @@ public class CombatCalculations {
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
-                Inventory.deadlutemons.add(lutemon);
+                Inventory.deadLutemons.add(lutemon);
                 Inventory.lutemons.remove(lutemon);
             }
 
