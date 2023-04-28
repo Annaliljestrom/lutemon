@@ -171,9 +171,7 @@ public class Inventory {
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            for (Lutemon lutemon : lutemons ) {
-                fileWriter.writeObject(lutemon);
-            }
+            fileWriter.writeObject(lutemons);
             fileWriter.close();
             System.out.println("Valmista tuli!");
         } catch (IOException e) {
@@ -222,7 +220,14 @@ public class Inventory {
     public void loadLutemons(Context context) {
         try {
             ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
-            lutemons = (ArrayList<Lutemon>) fileReader.readObject();
+            ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
+            int index = 0;
+            int size = lutemonsToAdd.size();
+            while(index < size) {
+                Lutemon lutemon = lutemonsToAdd.get(index);
+                lutemons.add(lutemon);
+                index++;
+            }
             fileReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Tiedostoa ei löytynyt.");

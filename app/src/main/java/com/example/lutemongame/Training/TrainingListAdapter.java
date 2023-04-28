@@ -57,7 +57,7 @@ public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder
         holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
         holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
-        holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
+        holder.lutemonLevel.setText("Level = "+lutemon.getLevel());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
 
 

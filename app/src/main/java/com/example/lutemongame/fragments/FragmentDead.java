@@ -1,6 +1,6 @@
 package com.example.lutemongame.fragments;
 
-import static com.example.lutemongame.Inventory.deadlutemons;
+import static com.example.lutemongame.Inventory.deadLutemons;
 import static com.example.lutemongame.Inventory.lutemons;
 
 import android.os.Bundle;
@@ -35,7 +35,7 @@ public class FragmentDead extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rvDeadLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new DeadLutemonListAdapter(getContext(), deadlutemons);
+        adapter = new DeadLutemonListAdapter(getContext(), deadLutemons);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
