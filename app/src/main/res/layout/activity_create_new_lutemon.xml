@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="100dp"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
                 app:srcCompat="@drawable/pink_transparent" />
@@ -26,7 +26,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="100dp"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 app:srcCompat="@drawable/green_transparent" />
@@ -43,7 +43,7 @@
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="100dp"
-                android:layout_height="48dp"
+                android:layout_height="50dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4"
                 app:srcCompat="@drawable/orange_transparent" />
@@ -51,7 +51,7 @@
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="100dp"
-                android:layout_height="46dp"
+                android:layout_height="50dp"
                 app:layout_constraintStart_toEndOf="@+id/colourCroup"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6"
                 app:srcCompat="@drawable/black_transparent" />
@@ -77,7 +77,7 @@
                 <RadioButton
                     android:id="@+id/greenButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:text="Green"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -85,7 +85,7 @@
                 <RadioButton
                     android:id="@+id/pinkButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:text="Pink"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -93,7 +93,7 @@
                 <RadioButton
                     android:id="@+id/orangeButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:text="Orange"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -101,7 +101,7 @@
                 <RadioButton
                     android:id="@+id/blackButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:text="Black"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -112,7 +112,8 @@
                 android:id="@+id/lutemonNameInput"
                 android:layout_width="306dp"
                 android:layout_height="74dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Enter Lutemon Name"
@@ -128,9 +129,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
                 android:onClick="createLutemonType"
                 android:text="Create lutemon"
                 app:layout_constraintEnd_toEndOf="@+id/lutemonNameInput"
+                app:layout_constraintHorizontal_bias="0.517"
                 app:layout_constraintStart_toStartOf="@+id/lutemonNameInput"
                 app:layout_constraintTop_toBottomOf="@+id/lutemonNameInput" />
 

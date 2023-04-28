@@ -1,10 +1,12 @@
-package com.example.lutemongame;
+package com.example.lutemongame.Battle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class InventoryListActivity extends AppCompatActivity {
+import com.example.lutemongame.R;
+
+public class ItemListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

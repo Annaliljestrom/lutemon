@@ -12,7 +12,7 @@
         android:theme="@style/Theme.LutemonGame"
         tools:targetApi="31">
         <activity
-            android:name=".InventoryListActivity"
+            android:name=".Battle.ItemListActivity"
             android:exported="false" />
         <activity
             android:name=".TabActivity"
