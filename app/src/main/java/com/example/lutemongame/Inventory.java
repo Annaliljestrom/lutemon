@@ -171,9 +171,7 @@ public class Inventory {
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            for (Lutemon lutemon : lutemons ) {
-                fileWriter.writeObject(lutemon);
-            }
+            fileWriter.writeObject(lutemons);
             fileWriter.close();
             System.out.println("Valmista tuli!");
         } catch (IOException e) {
