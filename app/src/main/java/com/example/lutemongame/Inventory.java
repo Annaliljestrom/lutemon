@@ -26,7 +26,7 @@ public class Inventory {
     private HashMap<String, Integer> backpack = new HashMap<String, Integer>();
     private ArrayList<String> itemList = new ArrayList<>();
 
-    public static ArrayList<Lutemon> deadlutemons = new ArrayList<Lutemon>();
+    public static ArrayList<Lutemon> deadLutemons = new ArrayList<Lutemon>();
 
     public static ArrayList<Lutemon> lutemons = new ArrayList<Lutemon>();
     public static ArrayList<Lutemon> battleLutemons = new ArrayList<Lutemon>();
@@ -146,18 +146,18 @@ public class Inventory {
 
     }
     public void reviveLutemon( ){
-        if (deadlutemons.isEmpty()){
+        if (deadLutemons.isEmpty()){
             System.out.println("No valit targets");
         }
         else{
             try (Scanner scan3 = new Scanner(System.in)) {
-                Lutemon.listLutemons(deadlutemons);
+                Lutemon.listLutemons(deadLutemons);
                 System.out.println("Select target");
                 Integer selectedLutemon = Integer.parseInt(scan3.nextLine());
-                ((Lutemon) deadlutemons.get(selectedLutemon)).setHealth(( (Lutemon) deadlutemons.get(selectedLutemon)).getmaxHP()/2);
+                ((Lutemon) deadLutemons.get(selectedLutemon)).setHealth(( (Lutemon) deadLutemons.get(selectedLutemon)).getmaxHP()/2);
                 System.out.println("Lutemon is revived\n");
-                lutemons.add((Lutemon) deadlutemons.get(selectedLutemon));
-                deadlutemons.remove(selectedLutemon);
+                lutemons.add((Lutemon) deadLutemons.get(selectedLutemon));
+                deadLutemons.remove(selectedLutemon);
 
 
             } catch (NumberFormatException e) {
@@ -199,7 +199,7 @@ public class Inventory {
                 fileOut = new FileOutputStream("savedLutemons.txt", true);
                 outputWrite = new OutputStreamWriter(fileOut, Charset.forName("UTF-16"));
                 BufferedWriter bw = new BufferedWriter(outputWrite);
-                // ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.txt",Context.MODE_APPEND));
+                // ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data",Context.MODE_APPEND));
                 bw.write("Lutemon " + lutemonName + ":\n- Väri: " + "\n- Hyökkäys: ");
                         // + lutemonAttack + "\n- Puolustus: " + lutemonDefece + "\n- Maksimi elämäpisteet: "
                         //+ lutemonMaxHP + "\n- Kokemus: " + lutemonExperience + "\n- Elämäpisteet: "

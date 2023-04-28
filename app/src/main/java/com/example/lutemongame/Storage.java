@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Storage {
 
-    static HashMap<String, Integer> reppu = new HashMap<String, Integer>();
+    static HashMap<String, Integer> backpack = new HashMap<String, Integer>();
 
-    public ArrayList<String> repunSisältö() {
+    public ArrayList<String> itemsInBackpack() {
         ArrayList<String> itemList = new ArrayList<>();
         System.out.println("repun sisältö on: \n");
-        for (Map.Entry<String, Integer> r : reppu.entrySet()) {
+        for (Map.Entry<String, Integer> r : backpack.entrySet()) {
             System.out.println(r.getKey() + " " + r.getValue());
             itemList.add(r.getKey());
 
@@ -21,20 +21,20 @@ public class Storage {
     }
 
     public void resetReppu() {
-        reppu.replaceAll((k, v) -> 0);
+        backpack.replaceAll((k, v) -> 0);
         System.out.println("Reppu resetattu");
-        System.out.println(reppu.values());
+        System.out.println(backpack.values());
 
     }
 
     public void repunToiminnot(Storage s, Scanner scan, Lutemon l, ArrayList<Lutemon> lutemons) {
         System.out.println("1) käytä esine 2) Palaa takaisin");
-        Integer selectionreppu = Integer.parseInt(scan.nextLine());
+        Integer selectionBackpack = Integer.parseInt(scan.nextLine());
 
-        switch (selectionreppu) {
+        switch (selectionBackpack) {
 
             case 1:
-                ArrayList<String> itemList = s.repunSisältö();
+                ArrayList<String> itemList = s.itemsInBackpack();
                 int i = 0;
                 for (String item : itemList) {
                     System.out.println(i + " Käytä " + item);
@@ -57,12 +57,10 @@ public class Storage {
                     } catch (IndexOutOfBoundsException e) {
                         System.out.println("Väärin valittu kohde");
                         return;
-
                     }
                     Lutemon lutemon = (Lutemon) lutemons.get(kohde);
                     // annetaan lutemonille täydet hp:t
                     lutemon.setHealth(lutemon.getmaxHP());
-
                     break;
                 }
 
@@ -73,11 +71,11 @@ public class Storage {
     }
 
     public void addItem(String key) {
-        reppu.merge(key, 1, (a, b) -> a + b);
+        backpack.merge(key, 1, (a, b) -> a + b);
     }
 
     public void useItem(String key) {
-        reppu.merge(key, 1, (a, b) -> a - b);
+        backpack.merge(key, 1, (a, b) -> a - b);
 
     }
 }
