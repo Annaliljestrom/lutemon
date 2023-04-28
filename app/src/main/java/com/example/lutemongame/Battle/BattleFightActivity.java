@@ -25,10 +25,10 @@ import com.example.lutemongame.R;
 public class BattleFightActivity extends AppCompatActivity {
     ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image, imageUseAbility1,imageDoge;
     TextView lutemon1Name,lutemon2Name, lutemon1Health, lutemon2Health;
+
     public static TextView txtWinner,txtLvlUp;
     Button inventory, btnReturn;
     ProgressBar progressBar1, progressBar2;
-    private Float percentageHP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +74,7 @@ public class BattleFightActivity extends AppCompatActivity {
                 inventory.setClickable(false);
                 Boolean FightOver = CombatArenas.trainingArena(0);
 
-                if (FightOver==true){
+                if (FightOver){
                     btnReturn.setVisibility(View.VISIBLE);
                     txtWinner.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
@@ -101,7 +101,7 @@ public class BattleFightActivity extends AppCompatActivity {
                 //calculating proggressbar status and health text
                 Boolean FightOver = CombatArenas.trainingArena(1);
 
-                if (FightOver==true){
+                if (FightOver){
                     btnReturn.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
                     ability2Image.setClickable(false);
@@ -130,7 +130,7 @@ public class BattleFightActivity extends AppCompatActivity {
 
     public int progressBarChange( int hp, int maxhp){
 
-        Float percentageHP = ((float)hp/(float)maxhp) *100;
+        float percentageHP = ((float)hp/(float)maxhp) *100;
     return Math.round(percentageHP);
     }
     public void resetView(Lutemon lutemon1, Lutemon lutemon2){
