@@ -6,7 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Battle.BattleFightActivity"
-    android:background="@drawable/battlefield">>
+    android:background="@drawable/battlefield"><![CDATA[>
+
+
+
+
+
+
+
+
+
+    ]]>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutUI"
@@ -190,5 +200,16 @@
         app:layout_constraintHorizontal_bias="0.302"
         app:layout_constraintStart_toStartOf="@+id/btnReturn"
         app:layout_constraintTop_toBottomOf="@+id/btnReturn" />
+
+    <ImageView
+        android:id="@+id/imgUseAblility1"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/poisonous_fart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

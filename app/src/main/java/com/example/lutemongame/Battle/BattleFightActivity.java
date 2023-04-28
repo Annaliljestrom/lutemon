@@ -3,12 +3,16 @@ package com.example.lutemongame.Battle;
 import static com.example.lutemongame.Inventory.battleLutemons;
 import static com.example.lutemongame.Inventory.getBattleLutemons;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -20,7 +24,7 @@ import com.example.lutemongame.MainActivity;
 import com.example.lutemongame.R;
 
 public class BattleFightActivity extends AppCompatActivity {
-    ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image;
+    ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image, imageUseAbility1;
     TextView lutemon1Name,lutemon2Name, lutemon1Health, lutemon2Health;
     public static TextView txtWinner,txtLvlUp;
     Button inventory, btnReturn;
@@ -52,6 +56,9 @@ public class BattleFightActivity extends AppCompatActivity {
         txtWinner.setVisibility(View.GONE);
         txtLvlUp = findViewById(R.id.txtLvlUp);
         txtLvlUp.setVisibility(View.GONE);
+        imageUseAbility1 = findViewById(R.id.imgUseAblility1);
+        imageUseAbility1.setVisibility(View.GONE);
+
 
 
         resetView(lutemon1,lutemon2);
@@ -59,13 +66,8 @@ public class BattleFightActivity extends AppCompatActivity {
         ability1Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //calculating proggressbar status and health text
+                animatedAttacks(lutemon2,lutemon1);
                 Boolean FightOver = CombatArenas.trainingArena(0);
-                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
-                lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
-                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
-                progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
 
                 if (FightOver==true){
                     btnReturn.setVisibility(View.VISIBLE);
@@ -74,11 +76,14 @@ public class BattleFightActivity extends AppCompatActivity {
                     ability2Image.setClickable(false);
                     lutemon1.setBattles(+1);
                     lutemon2.setBattles(+1);
-
-
                 }
             }
         });
+
+
+
+
+
         ability2Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +121,7 @@ public class BattleFightActivity extends AppCompatActivity {
 
     }
 
+
     public int progressBarChange( int hp, int maxhp){
 
         Float percentageHP = ((float)hp/(float)maxhp) *100;
@@ -145,5 +151,148 @@ public class BattleFightActivity extends AppCompatActivity {
             txtLvlUp.setVisibility(View.VISIBLE);
             txtLvlUp.setText(lutemonName+" Level has increased!\n"+lutemonName+" is now level "+newLevel);
         }
+    }
+    public void animatedAttacks(Lutemon lutemon2, Lutemon lutemon1){
+        //animating attacks for lutemon and opponent/dummy
+        ImageView imageView = findViewById(R.id.imageLutemon1Small);
+        Animation animationForward = new TranslateAnimation(0, 200, 0, -800);
+        animationForward.setDuration(500);
+        animationForward.setFillAfter(true);
+        imageView.startAnimation(animationForward);
+
+        animationForward.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                //waiting 1s after moving towards opponent
+                Animation animationWait = new TranslateAnimation(200, 200, -800, -800);
+                animationWait.setDuration(1000);
+                animationWait.setFillAfter(true);
+                imageView.startAnimation(animationWait);
+                animationWait.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        //showing attack image for 1s
+                        imageUseAbility1.setVisibility(View.VISIBLE);
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                        //updating hp and progressbars
+                        lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
+                        progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
+                        imageUseAbility1.setVisibility(View.GONE);
+
+                        //moving back to start position
+                        Animation animationBackward = new TranslateAnimation(200, 0, -800, 0);
+                        animationBackward.setDuration(2000);
+                        animationBackward.setFillAfter(true);
+                        imageView.startAnimation(animationBackward);
+
+                        animationBackward.setAnimationListener(new Animation.AnimationListener() {
+
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+                                imageUseAbility1.setVisibility(View.GONE);
+                            }
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                //starting opponent/dummys turn to attack
+                                animationDummyAttack(lutemon1);
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
+
+
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+    }
+    public void animationDummyAttack(Lutemon lutemon1){
+
+        ImageView imageView = findViewById(R.id.imageLutemon2);
+        Animation animationForward = new TranslateAnimation(0, -300, 0, 900);
+        animationForward.setDuration(500);
+        imageView.startAnimation(animationForward);
+
+        animationForward.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                ProgressBar imageViewHp = findViewById(R.id.progressBar2);
+                TextView imageViewTxt = findViewById(R.id.txtHP2);
+                Animation animationForwardHp = new TranslateAnimation(0, -300, 0, 900);
+                Animation animationForwardTxt = new TranslateAnimation(0, -300, 0, 900);
+                animationForwardHp.setDuration(500);
+                animationForwardTxt.setDuration(500);
+                animationForwardHp.setFillAfter(true);
+                animationForwardTxt.setFillAfter(true);
+                imageViewHp.startAnimation(animationForwardHp);
+                imageViewTxt.startAnimation(animationForwardTxt);
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
+                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
+
+                imageUseAbility1.setVisibility(View.GONE);
+                Animation animationBackward = new TranslateAnimation(-300, 0, 900, 0);
+                animationBackward.setDuration(1000);
+                animationBackward.setFillAfter(true);
+
+                ProgressBar imageViewHp = findViewById(R.id.progressBar2);
+                TextView imageViewTxt = findViewById(R.id.txtHP2);
+                Animation animationBackwardHp = new TranslateAnimation(-300, 0, 900, 0);
+                Animation animationBackwardTxt = new TranslateAnimation(-300, 0, 900, 0);
+                animationBackwardHp.setDuration(1000);
+                animationBackwardTxt.setDuration(1000);
+                animationBackwardHp.setFillAfter(true);
+                animationBackwardTxt.setFillAfter(true);
+                imageViewHp.startAnimation(animationBackwardHp);
+                imageViewTxt.startAnimation(animationBackwardTxt);
+                imageView.startAnimation(animationBackward);
+
+                animationBackward.setAnimationListener(new Animation.AnimationListener() {
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        imageUseAbility1.setVisibility(View.GONE);
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // Animation repeated
+                    }
+                });
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
     }
 }
