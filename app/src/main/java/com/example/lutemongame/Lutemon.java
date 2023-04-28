@@ -1,6 +1,5 @@
 package com.example.lutemongame;
 
-import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -303,6 +302,9 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     }
     public void getAbilityImage(){
 
+    }
+    public void resetHp(){
+        this.setHealth(this.maxhp);
     }
 }
 

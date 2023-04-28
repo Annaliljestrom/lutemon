@@ -45,8 +45,74 @@ public class BattleFightActivity extends AppCompatActivity {
         lutemon1Image = findViewById(R.id.playerLutemonImage);
         lutemon2Image = findViewById(R.id.imageLutemon2);
         btnReturn = findViewById(R.id.btnReturn);
-
         btnReturn.setVisibility(View.GONE);
+
+        resetView(lutemon1,lutemon2);
+
+        ability1Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //calculating proggressbar status and health text
+                Boolean FightOver = CombatArenas.trainingArena(0);
+                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
+                lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
+                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
+                progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
+
+                if (FightOver==true){
+                    btnReturn.setVisibility(View.VISIBLE);
+                    ability1Image.setClickable(false);
+                    ability2Image.setClickable(false);
+                    lutemon1.resetHp();
+                    lutemon2.resetHp();
+
+                }
+            }
+        });
+        ability2Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //calculating proggressbar status and health text
+                Boolean FightOver = CombatArenas.trainingArena(1);
+                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
+                lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
+                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
+                progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
+
+                if (FightOver==true){
+                    btnReturn.setVisibility(View.VISIBLE);
+                    ability1Image.setClickable(false);
+                    ability2Image.setClickable(false);
+                    inventory.setClickable(false);
+                    lutemon1.resetHp();
+                    lutemon2.resetHp();
+
+
+                }
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetView(lutemon1,lutemon2);
+                Intent intent = new Intent(BattleFightActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            });
+
+
+    }
+
+    public int progressBarChange( int hp, int maxhp){
+
+        Float percentageHP = ((float)hp/(float)maxhp) *100;
+    return Math.round(percentageHP);
+    }
+    public void resetView(Lutemon lutemon1, Lutemon lutemon2){
+
         playerLutemonImage.setImageResource(lutemon1.getImage());
         ability1Image.setImageResource(R.drawable.poisonous_fart);
         ability2Image.setImageResource(R.drawable.awkward_stare);
@@ -59,58 +125,5 @@ public class BattleFightActivity extends AppCompatActivity {
         lutemon1ImageSmall.setImageResource(lutemon1.getImage());
         progressBar1.setProgress(100);
         progressBar2.setProgress(100);
-
-        ability1Image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //calculating proggressbar status and health text
-
-                Boolean FightOver = CombatArenas.trainingArena(0);
-                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
-                lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
-                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
-                progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
-
-                if (FightOver==true){
-                    btnReturn.setVisibility(View.VISIBLE);
-                    ability1Image.setClickable(false);
-                    ability2Image.setClickable(false);
-
-                }
-            }
-        });
-        ability2Image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Boolean FightOver = CombatArenas.trainingArena(1);
-                lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
-                lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
-                progressBar1.setProgress(progressBarChange(lutemon1.getHealth(),lutemon1.getmaxHP()));
-                progressBar2.setProgress(progressBarChange(lutemon2.getHealth(),lutemon2.getmaxHP()));
-                if (FightOver==true){
-                    btnReturn.setVisibility(View.VISIBLE);
-                    ability1Image.setClickable(false);
-                    ability2Image.setClickable(false);
-
-                }
-            }
-        });
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BattleFightActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            });
-
-                //calculating proggressbar status and health text
-    }
-
-    public int progressBarChange( int hp, int maxhp){
-
-        Float percentageHP = ((float)hp/(float)maxhp) *100;
-    return Math.round(percentageHP);
     }
 }
