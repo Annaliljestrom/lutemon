@@ -60,7 +60,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
 
     private HashMap<String, Integer> stats = new HashMap<>();
 
-    enum ColorType {
+    public enum ColorType {
         WHITE,
         BLACK,
         GREEN,
@@ -192,12 +192,9 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
 
-        Lutemon dummy = new Lutemon();
-        dummy.chosenColorNumber(6);
-        dummy.lutemon(dummy.getColor(), "Dummy", 0);
-        dummy.setHealth(0);
-        dummy.image = R.drawable.dummy_transparent;
-        Inventory.deadLutemons.add(dummy);
+
+        //Inventory.battleLutemons.add(dummy2);
+
 
         lutemon.scoreReset();
         id++;

@@ -1,6 +1,8 @@
 package com.example.lutemongame.Training;
 
 
+import static com.example.lutemongame.Inventory.battleLutemons;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -57,7 +59,7 @@ public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder
         holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
         holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
-        holder.lutemonLevel.setText("Level = "+lutemon.getTaso());
+        holder.lutemonLevel.setText("Level = "+lutemon.getLevel());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
 
 
@@ -66,7 +68,7 @@ public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder
             public void onClick(View view) {
 
                 lutemon1 = lutemons.get(holder.getAdapterPosition());
-                TrainingActivity.GG();
+                battleLutemons.set(0,lutemon1);
             };
 
 

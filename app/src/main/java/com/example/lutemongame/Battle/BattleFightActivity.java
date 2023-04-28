@@ -1,5 +1,6 @@
 package com.example.lutemongame.Battle;
 
+import static com.example.lutemongame.Inventory.battleLutemons;
 import static com.example.lutemongame.Inventory.getBattleLutemons;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -99,6 +100,7 @@ public class BattleFightActivity extends AppCompatActivity {
                     lutemon2.resetHp();
                     lutemon1.setBattles(+1);
                     lutemon2.setBattles(+1);
+
 
 
                 }

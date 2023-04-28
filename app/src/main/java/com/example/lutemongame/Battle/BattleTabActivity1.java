@@ -18,6 +18,7 @@ public class BattleTabActivity1 extends AppCompatActivity {
         fragmentArea =  findViewById(R.id.fragmentArea);
         TabPagerAdapterBattle tabPagerAdapterBattle = new TabPagerAdapterBattle(this);
         fragmentArea.setAdapter(tabPagerAdapterBattle);
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

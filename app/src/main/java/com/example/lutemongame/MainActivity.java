@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void switchToBattleActivity(View view) {
+
         Intent intent = new Intent(this, BattleTabActivity1.class);
         startActivity(intent);
     }
@@ -77,5 +78,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchToLoadLutemons(View view) {
         Inventory.getInstance().loadLutemons(context);
+    }
+    public static void resetDummy(){
+        Lutemon dummy1 = new Lutemon();
+        dummy1.chosenColorNumber(6);
+        dummy1.lutemon(dummy1.getColor(), "Dummy", 0);
+        dummy1.image = R.drawable.dummy_transparent;
+
+        Lutemon dummy2 = new Lutemon();
+        dummy2.chosenColorNumber(6);
+        dummy2.lutemon(dummy2.getColor(), "Dummy", 0);
+        dummy2.image = R.drawable.dummy_transparent;
+
+        Inventory.battleLutemons.add(0,dummy1);
+        Inventory.battleLutemons.add(1,dummy2);
     }
 }
