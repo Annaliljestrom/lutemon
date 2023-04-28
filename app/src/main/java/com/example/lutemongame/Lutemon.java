@@ -119,7 +119,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
             case BLACK:
                 image = R.drawable.black_transparent;
                 attack = 9;
-                defence = 0;
+                defence = 1;
                 maxhp = 16;
                 health = 16;
                 level = 0;
