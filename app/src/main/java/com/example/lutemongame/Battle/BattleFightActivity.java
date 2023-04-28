@@ -21,6 +21,7 @@ import com.example.lutemongame.R;
 public class BattleFightActivity extends AppCompatActivity {
     ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image;
     TextView lutemon1Name,lutemon2Name, lutemon1Health, lutemon2Health;
+    public static TextView txtWinner;
     Button inventory, btnReturn;
     ProgressBar progressBar1, progressBar2;
     private Float percentageHP;
@@ -46,6 +47,8 @@ public class BattleFightActivity extends AppCompatActivity {
         lutemon2Image = findViewById(R.id.imageLutemon2);
         btnReturn = findViewById(R.id.btnReturn);
         btnReturn.setVisibility(View.GONE);
+        txtWinner = findViewById(R.id.txtWinner);
+        txtWinner.setVisibility(View.GONE);
 
         resetView(lutemon1,lutemon2);
 
@@ -62,6 +65,7 @@ public class BattleFightActivity extends AppCompatActivity {
 
                 if (FightOver==true){
                     btnReturn.setVisibility(View.VISIBLE);
+                    txtWinner.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
                     ability2Image.setClickable(false);
                     lutemon1.resetHp();
@@ -125,5 +129,9 @@ public class BattleFightActivity extends AppCompatActivity {
         lutemon1ImageSmall.setImageResource(lutemon1.getImage());
         progressBar1.setProgress(100);
         progressBar2.setProgress(100);
+        txtWinner.setText("Winner is");
+    }
+    public static void setWinner(String winner){
+        txtWinner.setText("Winner is "+winner+"!");
     }
 }

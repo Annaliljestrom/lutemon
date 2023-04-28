@@ -36,6 +36,7 @@ public class CombatArenas {
         //checking if both lutemons are still alive
         if (lutemon2.getHealth() <= 0 || lutemon1.getHealth() <= 0) {
             CombatCalculations.checkIfAlive(lutemon1, lutemon2);
+
             System.out.println("Loppuu tässä2");
             return true;
         }

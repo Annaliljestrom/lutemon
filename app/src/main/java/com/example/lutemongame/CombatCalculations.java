@@ -1,5 +1,6 @@
 package com.example.lutemongame;
 
+import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Inventory;
 import com.example.lutemongame.Lutemon;
 
@@ -145,8 +146,12 @@ public class CombatCalculations {
     }
     public static boolean checkIfAlive(Lutemon lutemon, Lutemon dummy) {
         if (dummy.getHealth() <= 0) {
+            //setting winner name on screen
+            BattleFightActivity.setWinner(lutemon.getName());
+
             System.out.println("Taistelun voittaja on " + lutemon.getName() + "\n");
             System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
+
             lutemon.setExperience(lutemon.getExperience() + 2);
             kehittyminen(lutemon);
             System.out.println(
@@ -160,6 +165,7 @@ public class CombatCalculations {
         }
 
         if (lutemon.getHealth() <= 0) {
+            BattleFightActivity.setWinner(dummy.getName());
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
