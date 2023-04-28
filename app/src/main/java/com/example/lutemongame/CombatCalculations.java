@@ -1,5 +1,6 @@
 package com.example.lutemongame;
 
+import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Inventory;
 import com.example.lutemongame.Lutemon;
 
@@ -100,7 +101,7 @@ public class CombatCalculations {
 
     public static int setDefenceRoll(Lutemon defender) {
         // setting defence number to random from 0 to defender defence
-        defenceRoll = ThreadLocalRandom.current().nextInt(1, defender.getDefence());
+        defenceRoll = ThreadLocalRandom.current().nextInt(1, defender.getDefence()+1);
 
         return defenceRoll;
     }
@@ -117,10 +118,13 @@ public class CombatCalculations {
     }
 
     public static void kehittyminen(Lutemon lutemon) {
+        int oldLevel = lutemon.getTaso();
+
         lutemon.setTaso(Math.floor(0.5 + Math.sqrt((2 * lutemon.getExperience() + 0.25))));
         lutemon.setAttack((int) Math.round(lutemon.getAttack() + (0.3 * lutemon.getTaso())));
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getTaso())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getTaso())));
+        BattleFightActivity.levelUp(oldLevel, lutemon.getTaso(),lutemon.getName());
         //getting new skills when leveling up
         if (lutemon.getTaso()>= 5){
             switch(lutemon.getColor()){
@@ -145,8 +149,14 @@ public class CombatCalculations {
     }
     public static boolean checkIfAlive(Lutemon lutemon, Lutemon dummy) {
         if (dummy.getHealth() <= 0) {
+            //setting winner name on screen
+            BattleFightActivity.setWinner(lutemon.getName());
+            lutemon.setVictories(+1);
+            dummy.setDefeats(+1);
+
             System.out.println("Taistelun voittaja on " + lutemon.getName() + "\n");
             System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
+
             lutemon.setExperience(lutemon.getExperience() + 2);
             kehittyminen(lutemon);
             System.out.println(
@@ -160,6 +170,9 @@ public class CombatCalculations {
         }
 
         if (lutemon.getHealth() <= 0) {
+            BattleFightActivity.setWinner(dummy.getName());
+            dummy.setVictories(+1);
+            lutemon.setDefeats(+1);
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
