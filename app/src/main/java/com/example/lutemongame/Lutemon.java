@@ -16,6 +16,44 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int maxhp;
     private int id;
     private int taso;
+    private int battles = 0;
+    private int trainingDays = 0;
+    private int victories = 0;
+
+    public int getBattles() {
+        return battles;
+    }
+
+    public int getTrainingDays() {
+        return trainingDays;
+    }
+
+    public int getVictories() {
+        return victories;
+    }
+
+    public int getDefeats() {
+        return defeats;
+    }
+
+    private int defeats = 0;
+
+    public void setBattles(int battles) {
+        this.battles = battles;
+    }
+
+    public void setTrainingDays(int trainingDays) {
+        this.trainingDays = trainingDays;
+    }
+
+    public void setVictories(int victories) {
+        this.victories = victories;
+    }
+
+    public void setDefeats(int defeats) {
+        this.defeats = defeats;
+    }
+
     private int abilityDamage;
     private ColorType Type;
     protected int image;

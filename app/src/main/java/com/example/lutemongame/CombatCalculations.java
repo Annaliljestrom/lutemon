@@ -151,6 +151,8 @@ public class CombatCalculations {
         if (dummy.getHealth() <= 0) {
             //setting winner name on screen
             BattleFightActivity.setWinner(lutemon.getName());
+            lutemon.setVictories(+1);
+            dummy.setDefeats(+1);
 
             System.out.println("Taistelun voittaja on " + lutemon.getName() + "\n");
             System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
@@ -169,6 +171,8 @@ public class CombatCalculations {
 
         if (lutemon.getHealth() <= 0) {
             BattleFightActivity.setWinner(dummy.getName());
+            dummy.setVictories(+1);
+            lutemon.setDefeats(+1);
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
