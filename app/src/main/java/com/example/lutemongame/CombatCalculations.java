@@ -125,6 +125,7 @@ public class CombatCalculations {
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getLevel())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getLevel())));
         BattleFightActivity.levelUp(oldLevel, lutemon.getLevel(),lutemon.getName());
+        lutemon.setHealth(lutemon.getmaxHP());
         //getting new skills when leveling up
         if (lutemon.getLevel()>= 5){
             switch(lutemon.getColor()){
@@ -153,6 +154,8 @@ public class CombatCalculations {
             BattleFightActivity.setWinner(lutemon.getName());
             lutemon.setVictories(+1);
             dummy.setDefeats(+1);
+            dummy.setHealth(0);
+            lutemon.resetHp();
 
             System.out.println("Taistelun voittaja on " + lutemon.getName() + "\n");
             System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
@@ -164,6 +167,11 @@ public class CombatCalculations {
 
             lutemon.setStats("wins");
             System.out.println("Voitot ovat " + lutemon.getStats("wins") + "\n");
+            if (Inventory.lutemons.contains(dummy)){
+                Inventory.deadLutemons.add(dummy);
+                Inventory.lutemons.remove(dummy);
+
+            }
 
             boolean y = false;
             return y;
@@ -173,11 +181,14 @@ public class CombatCalculations {
             BattleFightActivity.setWinner(dummy.getName());
             dummy.setVictories(+1);
             lutemon.setDefeats(+1);
+            dummy.resetHp();
+
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
                 Inventory.deadLutemons.add(lutemon);
                 Inventory.lutemons.remove(lutemon);
+
             }
 
 

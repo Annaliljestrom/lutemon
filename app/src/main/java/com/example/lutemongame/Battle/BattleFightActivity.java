@@ -72,9 +72,8 @@ public class BattleFightActivity extends AppCompatActivity {
                     txtWinner.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
                     ability2Image.setClickable(false);
-                    lutemon1.resetHp();
-                    lutemon2.resetHp();
                     lutemon1.setBattles(+1);
+                    lutemon2.setBattles(+1);
 
 
                 }
@@ -96,8 +95,6 @@ public class BattleFightActivity extends AppCompatActivity {
                     ability1Image.setClickable(false);
                     ability2Image.setClickable(false);
                     inventory.setClickable(false);
-                    lutemon1.resetHp();
-                    lutemon2.resetHp();
                     lutemon1.setBattles(+1);
                     lutemon2.setBattles(+1);
 
