@@ -1,8 +1,6 @@
 package com.example.lutemongame;
 
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +13,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int health;
     private int maxhp;
     private int id;
-    private int taso;
+    private int level;
     private int battles = 0;
     private int trainingDays = 0;
     private int victories = 0;
@@ -112,7 +110,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 4;
                 maxhp = 20;
                 health = 20;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Meat mallet", 5);
                 abilitiesMap.put("Poisonous fart", 5);
                 //abilitiesMap.put("Sleep", 10);
@@ -124,7 +122,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 0;
                 maxhp = 16;
                 health = 16;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Meat mallet", 5);
                 abilitiesMap.put("Disruptive meme", 5);
                 break;
@@ -135,7 +133,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 3;
                 maxhp = 19;
                 health = 19;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Meat mallet", 5);
                 abilitiesMap.put("Awkward stare", 5);
                 break;
@@ -146,7 +144,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 2;
                 maxhp = 18;
                 health = 18;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Meat mallet", 5);
                 abilitiesMap.put("Fit of rage", 5);
                 break;
@@ -157,7 +155,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 1;
                 maxhp = 17;
                 health = 17;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Meat mallet", 5);
                 abilitiesMap.put("Infectious bite of syphilis", 5);
                 break;
@@ -168,7 +166,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 2;
                 maxhp = 20;
                 health = 20;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Trash Talk", 5);
                 break;
             case GYM:
@@ -176,7 +174,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 defence = 3;
                 maxhp = 50;
                 health = 50;
-                taso = 0;
+                level = 0;
                 abilitiesMap.put("Punch", 2);
 
             default:
@@ -199,7 +197,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         dummy.lutemon(dummy.getColor(), "Dummy", 0);
         dummy.setHealth(0);
         dummy.image = R.drawable.dummy_transparent;
-        Inventory.deadlutemons.add(dummy);
+        Inventory.deadLutemons.add(dummy);
 
         lutemon.scoreReset();
         id++;
@@ -262,12 +260,12 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         this.experience = experience;
     }
 
-    public int getTaso() {
-        return this.taso;
+    public int getLevel() {
+        return this.level;
     }
 
-    public void setTaso(double d) {
-        this.taso = (int) d;
+    public void setLevel(double d) {
+        this.level = (int) d;
     }
 
     public void setColor(ColorType Type) {
@@ -316,15 +314,15 @@ public class Lutemon extends AppCompatActivity implements Serializable {
             System.out.println(
                     "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName());
             System.out.println("Attack = "+ ((Lutemon) lutemon).getAttack() + "\nDefence = " + ((Lutemon) lutemon).getDefence() + "\n" +"HP = "+
-                    ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getTaso()+"\n"
+                    ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getLevel()+"\n"
             );
         }
         try{
-            for (Object lutemon: Inventory.deadlutemons){
+            for (Object lutemon: Inventory.deadLutemons){
                 System.out.println(
                         "Lutemon " + ((Lutemon) lutemon).getId() + "\nnimi = " + ((Lutemon) lutemon).getName());
                 System.out.println("Attack = "+ ((Lutemon) lutemon).getAttack() + "\nDefence = " + ((Lutemon) lutemon).getDefence() + "\n" +"HP = "+
-                        ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getTaso()+"\n"
+                        ((Lutemon) lutemon).getHealth()+"/"+((Lutemon)lutemon).getmaxHP()+"\nLevel = " +((Lutemon) lutemon).getLevel()+"\n"
                 );
             }
         }catch(IndexOutOfBoundsException e){

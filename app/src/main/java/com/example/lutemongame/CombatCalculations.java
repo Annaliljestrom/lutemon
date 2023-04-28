@@ -117,16 +117,16 @@ public class CombatCalculations {
         return defenceRoll;
     }
 
-    public static void kehittyminen(Lutemon lutemon) {
-        int oldLevel = lutemon.getTaso();
+    public static void evolving(Lutemon lutemon) {
+        int oldLevel = lutemon.getLevel();
 
-        lutemon.setTaso(Math.floor(0.5 + Math.sqrt((2 * lutemon.getExperience() + 0.25))));
-        lutemon.setAttack((int) Math.round(lutemon.getAttack() + (0.3 * lutemon.getTaso())));
-        lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getTaso())));
-        lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getTaso())));
-        BattleFightActivity.levelUp(oldLevel, lutemon.getTaso(),lutemon.getName());
+        lutemon.setLevel(Math.floor(0.5 + Math.sqrt((2 * lutemon.getExperience() + 0.25))));
+        lutemon.setAttack((int) Math.round(lutemon.getAttack() + (0.3 * lutemon.getLevel())));
+        lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getLevel())));
+        lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getLevel())));
+        BattleFightActivity.levelUp(oldLevel, lutemon.getLevel(),lutemon.getName());
         //getting new skills when leveling up
-        if (lutemon.getTaso()>= 5){
+        if (lutemon.getLevel()>= 5){
             switch(lutemon.getColor()){
                 case WHITE:
                     lutemon.abilitiesMap.put("Sleep", 10);
@@ -158,9 +158,9 @@ public class CombatCalculations {
             System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
 
             lutemon.setExperience(lutemon.getExperience() + 2);
-            kehittyminen(lutemon);
+            evolving(lutemon);
             System.out.println(
-                    lutemon.getName() + " taso on nyt " + lutemon.getTaso() + "\nxp:tä on " + lutemon.getExperience());
+                    lutemon.getName() + " taso on nyt " + lutemon.getLevel() + "\nxp:tä on " + lutemon.getExperience());
 
             lutemon.setStats("wins");
             System.out.println("Voitot ovat " + lutemon.getStats("wins") + "\n");
@@ -176,7 +176,7 @@ public class CombatCalculations {
             System.out.println("Taistelun voittaja " + dummy.getName());
             lutemon.setHealth(0);
             if (Inventory.lutemons.contains(lutemon)){
-                Inventory.deadlutemons.add(lutemon);
+                Inventory.deadLutemons.add(lutemon);
                 Inventory.lutemons.remove(lutemon);
             }
 
