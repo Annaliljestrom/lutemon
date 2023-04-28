@@ -346,11 +346,11 @@ public class BattleFightActivity extends AppCompatActivity {
                 AnimationSet animationSet = new AnimationSet(true);
 
                 Animation animationMove = new TranslateAnimation(0, 0, 0, 0);
-                animationMove.setDuration(2000);
+                animationMove.setDuration(1500);
                 animationMove.setFillAfter(true);
                 animationSet.addAnimation(animationMove);
 
-                Animation animationFadeOut = new AlphaAnimation(1.0f, 0.5f);
+                Animation animationFadeOut = new AlphaAnimation(1.0f, 0.0f);
                 animationFadeOut.setDuration(1500);
                 animationFadeOut.setFillAfter(true);
                 animationSet.addAnimation(animationFadeOut);
