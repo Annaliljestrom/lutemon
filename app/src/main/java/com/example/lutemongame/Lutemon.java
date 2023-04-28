@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Lutemon extends AppCompatActivity implements Serializable {
     private String name;
@@ -55,7 +56,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int abilityDamage;
     private ColorType Type;
     protected int image;
-    HashMap <String, Integer> abilitiesMap = new HashMap<>();
+    LinkedHashMap<String, Integer> abilitiesMap = new LinkedHashMap<>();
     private ArrayList<String> abilitiesList = new ArrayList<>();
 
     private HashMap<String, Integer> stats = new HashMap<>();
@@ -156,8 +157,13 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 maxhp = 17;
                 health = 17;
                 level = 0;
-                abilitiesMap.put("Meat mallet", 5);
-                abilitiesMap.put("Infectious bite of syphilis", 5);
+                if (abilitiesMap.containsKey("Meat mallet") && abilitiesMap.containsKey("Infectious bite of syphilis")){
+
+                }else{
+                    abilitiesMap.put("Meat mallet", 5);
+                    abilitiesMap.put("Infectious bite of syphilis",5);
+                }
+
                 break;
 
             case DUMMY:
@@ -168,6 +174,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 health = 20;
                 level = 0;
                 abilitiesMap.put("Trash Talk", 5);
+                abilitiesMap.put("Hard Feelings", 3);
                 break;
             case GYM:
                 attack = 1;
@@ -281,15 +288,22 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         int i = 1;
         for (HashMap.Entry<String, Integer> set :
                 abilitiesMap.entrySet()) {
-            abilitiesList.add(set.getKey());
-            System.out.println(i+" "+set.getKey() + " = "
-                    + set.getValue()+" Damage");
+            if (!abilitiesList.contains(set.getKey())){
+                abilitiesList.add(set.getKey());
+                System.out.println(i+" "+set.getKey() + " = "
+                        + set.getValue()+" Damage");
+            }else{
+                System.out.println("ability is already on the list");
+            }
+
             i++;
         }
 
     }
 
     public Integer getAbilityDamage(int valinta){
+        System.out.println("lsit-------"+abilitiesList);
+        System.out.println("Map--------"+abilitiesMap);
         String abilityName = abilitiesList.get(valinta);
         return abilitiesMap.get(abilityName);
     }
