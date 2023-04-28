@@ -21,7 +21,7 @@ import com.example.lutemongame.R;
 public class BattleFightActivity extends AppCompatActivity {
     ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image;
     TextView lutemon1Name,lutemon2Name, lutemon1Health, lutemon2Health;
-    public static TextView txtWinner;
+    public static TextView txtWinner,txtLvlUp;
     Button inventory, btnReturn;
     ProgressBar progressBar1, progressBar2;
     private Float percentageHP;
@@ -49,6 +49,9 @@ public class BattleFightActivity extends AppCompatActivity {
         btnReturn.setVisibility(View.GONE);
         txtWinner = findViewById(R.id.txtWinner);
         txtWinner.setVisibility(View.GONE);
+        txtLvlUp = findViewById(R.id.txtLvlUp);
+        txtLvlUp.setVisibility(View.GONE);
+
 
         resetView(lutemon1,lutemon2);
 
@@ -133,5 +136,11 @@ public class BattleFightActivity extends AppCompatActivity {
     }
     public static void setWinner(String winner){
         txtWinner.setText("Winner is "+winner+"!");
+    }
+    public static void levelUp(int oldLevel, int newLevel, String lutemonName){
+        if (oldLevel!=newLevel){
+            txtLvlUp.setVisibility(View.VISIBLE);
+            txtLvlUp.setText(lutemonName+" Level has increased!\n"+lutemonName+" is now level "+newLevel);
+        }
     }
 }

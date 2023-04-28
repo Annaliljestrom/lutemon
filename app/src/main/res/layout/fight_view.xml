@@ -178,4 +178,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/txtLvlUp"
+        android:layout_width="298dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="4dp"
+        android:text="txtLvlUp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnReturn"
+        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintStart_toStartOf="@+id/btnReturn"
+        app:layout_constraintTop_toBottomOf="@+id/btnReturn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

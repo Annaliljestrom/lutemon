@@ -118,10 +118,13 @@ public class CombatCalculations {
     }
 
     public static void kehittyminen(Lutemon lutemon) {
+        int oldLevel = lutemon.getTaso();
+
         lutemon.setTaso(Math.floor(0.5 + Math.sqrt((2 * lutemon.getExperience() + 0.25))));
         lutemon.setAttack((int) Math.round(lutemon.getAttack() + (0.3 * lutemon.getTaso())));
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getTaso())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getTaso())));
+        BattleFightActivity.levelUp(oldLevel, lutemon.getTaso(),lutemon.getName());
         //getting new skills when leveling up
         if (lutemon.getTaso()>= 5){
             switch(lutemon.getColor()){
