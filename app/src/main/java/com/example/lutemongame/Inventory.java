@@ -96,40 +96,7 @@ public class Inventory {
 
     }
 
-    public void listItemList() {
-        backpackContents();
-    }
-    public void selectItem(int selectedItemIndex){
-        switch(selectedItemIndex){
-            case 0:
-                removeItem("Potion");
 
-                itemTargetHeal(30);
-                break;
-            case 1:
-                try{
-                    removeItem("Revive potion");
-                    reviveLutemon();
-
-                }
-
-                catch(IndexOutOfBoundsException e){
-                    System.out.println("");
-                }
-
-                break;
-            case 3:
-                removeItem("Max potion");
-                itemTargetHeal(999999);
-
-            default :
-                System.out.println("Invalid selection, returning");
-                break;
-        }
-
-
-
-    }
     public void itemTargetHeal(int healAmount){
         try (Scanner scan2 = new Scanner(System.in)) {
             //getLutemons();
@@ -150,26 +117,7 @@ public class Inventory {
         }
 
     }
-    public void reviveLutemon( ){
-        if (deadLutemons.isEmpty()){
-            System.out.println("No valit targets");
-        }
-        else{
-            try (Scanner scan3 = new Scanner(System.in)) {
-                Lutemon.listLutemons(deadLutemons);
-                System.out.println("Select target");
-                Integer selectedLutemon = Integer.parseInt(scan3.nextLine());
-                ((Lutemon) deadLutemons.get(selectedLutemon)).setHealth(( (Lutemon) deadLutemons.get(selectedLutemon)).getmaxHP()/2);
-                System.out.println("Lutemon is revived\n");
-                lutemons.add((Lutemon) deadLutemons.get(selectedLutemon));
-                deadLutemons.remove(selectedLutemon);
-            } catch (NumberFormatException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
 
-    }
 
     public void saveLutemons(Context context) {
         // Creating a list that will be saved in to the file

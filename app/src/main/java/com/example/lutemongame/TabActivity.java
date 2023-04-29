@@ -6,8 +6,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TableLayout;
+
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -52,10 +51,6 @@ public class TabActivity extends AppCompatActivity {
 
 
 
-    }
-    public void switchToMainActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
 }

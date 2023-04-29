@@ -15,8 +15,6 @@ import com.example.lutemongame.lutemonListAdapter;
 
 
 public class FragmentAlive extends Fragment {
-    private RecyclerView recyclerView;
-    private lutemonListAdapter adapter;
 
 
     @Override
@@ -28,9 +26,9 @@ public class FragmentAlive extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Taking lutemons from the lutemon list and adding them to the recyclerview
-        recyclerView = view.findViewById(R.id.rvLutemonList);
+        RecyclerView recyclerView = view.findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new lutemonListAdapter(getContext(), lutemons);
+        lutemonListAdapter adapter = new lutemonListAdapter(getContext(), lutemons);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

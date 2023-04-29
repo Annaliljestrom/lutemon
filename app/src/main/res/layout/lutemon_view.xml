@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:text="string/Name"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtLutemonColour"
@@ -34,8 +35,7 @@
             android:layout_height="wrap_content"
             android:text="Colour"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtLutemonAttack"

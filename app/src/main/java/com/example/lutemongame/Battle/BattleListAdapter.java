@@ -1,18 +1,13 @@
 package com.example.lutemongame.Battle;
 
-import static android.app.PendingIntent.getActivity;
-
 import static com.example.lutemongame.Inventory.battleLutemons;
-import static com.example.lutemongame.Inventory.lutemons;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lutemongame.Inventory;

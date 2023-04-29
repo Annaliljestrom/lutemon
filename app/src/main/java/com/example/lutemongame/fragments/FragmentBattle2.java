@@ -1,7 +1,5 @@
 package com.example.lutemongame.fragments;
 
-import static androidx.core.content.ContextCompat.startActivity;
-import static com.example.lutemongame.Inventory.battleLutemons;
 import static com.example.lutemongame.Inventory.lutemons;
 
 import android.content.Intent;
@@ -18,15 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lutemongame.Battle.BattleFightActivity;
-import com.example.lutemongame.Battle.BattleListAdapter;
 import com.example.lutemongame.Battle.BattleListAdapter2;
-import com.example.lutemongame.Battle.BattleViewHolder;
-import com.example.lutemongame.Lutemon;
 import com.example.lutemongame.R;
 
 public class FragmentBattle2 extends Fragment {
-    private RecyclerView recyclerView;
-    private BattleListAdapter2 adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_battle2, container, false);
@@ -49,9 +42,9 @@ public class FragmentBattle2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Taking lutemons from the lutemonList and adding them to the recyclerview
-        recyclerView = view.findViewById(R.id.rvLutemonList);
+        RecyclerView recyclerView = view.findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new BattleListAdapter2(getContext(), lutemons);
+        BattleListAdapter2 adapter = new BattleListAdapter2(getContext(), lutemons);
         recyclerView.setAdapter(adapter);
     }
 
