@@ -167,9 +167,12 @@ public class Inventory {
     }
 
     public void saveLutemons(Context context) {
+        ArrayList<ArrayList<Lutemon>> lutemonsToSave = new ArrayList<ArrayList<Lutemon>>();
+        lutemonsToSave.add(lutemons);
+        lutemonsToSave.add(deadLutemons);
         try {
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            fileWriter.writeObject(lutemons);
+            fileWriter.writeObject(lutemonsToSave);
             fileWriter.close();
             System.out.println("Valmista tuli!");
         } catch (IOException e) {
@@ -184,13 +187,22 @@ public class Inventory {
     public void loadLutemons(Context context) {
         try {
             ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
-            ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
-            int index = 0;
-            int size = lutemonsToAdd.size();
-            while (index < size) {
-                Lutemon lutemon = lutemonsToAdd.get(index);
+            ArrayList<ArrayList<Lutemon>> lutemonsToLoad = (ArrayList<ArrayList<Lutemon>>) fileReader.readObject();
+            ArrayList<Lutemon> lutemonsToLoadAlive = lutemonsToLoad.get(0);
+            ArrayList<Lutemon> lutemonsToLoadDead = lutemonsToLoad.get(1);
+            int n = 0;
+            int sizeAlive = lutemonsToLoadAlive.size();
+            while (n < sizeAlive) {
+                Lutemon lutemon = lutemonsToLoadAlive.get(n);
                 lutemons.add(lutemon);
-                index++;
+                n++;
+            }
+            int m = 0;
+            int sizeDead = lutemonsToLoadDead.size();
+            while (m < sizeDead) {
+                Lutemon lutemon = lutemonsToLoadDead.get(m);
+                deadLutemons.add(lutemon);
+                m++;
             }
             fileReader.close();
         } catch (FileNotFoundException e) {

@@ -32,7 +32,7 @@ public class FragmentDead extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // taking dead lutemons from the list and adding them to the recyclerview
+        // Taking dead lutemons from the list and adding them to the recyclerview
         recyclerView = view.findViewById(R.id.rvDeadLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new DeadLutemonListAdapter(getContext(), deadLutemons);

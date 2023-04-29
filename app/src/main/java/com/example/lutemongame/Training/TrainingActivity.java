@@ -29,7 +29,7 @@ public class TrainingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
-        // taking lutemons from the list and adding them to the recyclerview
+        // Taking lutemons from the list and adding them to the recyclerview
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TrainingListAdapter(this, lutemons);
@@ -41,7 +41,7 @@ public class TrainingActivity extends AppCompatActivity {
         btnFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    // switching to the training view
+                    // Switching to the training view
                     //battleLutemons.set(dummy,1);
                     Intent intent = new Intent(TrainingActivity.this, BattleFightActivity.class);
                     startActivity(intent);
