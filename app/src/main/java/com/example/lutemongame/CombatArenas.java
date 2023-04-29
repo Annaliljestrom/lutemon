@@ -6,9 +6,6 @@ public class CombatArenas {
 
     public static Boolean trainingArena(int abilityNumber) {
 
-//        Lutemon dummy = new Lutemon();
-//        dummy.chosenColorNumber(6);
-//        dummy.lutemon(dummy.getColor(), "Dummy", 0);
         // Saving the two lutemons, that are going to fight, to the variables
         Lutemon lutemon1 = Inventory.getBattleLutemons().get(0);
         Lutemon lutemon2 = Inventory.getBattleLutemons().get(1);

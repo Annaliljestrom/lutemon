@@ -1,5 +1,7 @@
 package com.example.lutemongame;
 
+import static com.example.lutemongame.Inventory.deadLutemons;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
     }
     public ArrayList<Lutemon> getDeadLutemons() {return deadLutemons;
     }
+
     private ArrayList<Lutemon> deadLutemons = new ArrayList<Lutemon>();
     public DeadLutemonListAdapter(Context applicationContext, ArrayList<Lutemon> deadlutemons) {
         this.context=applicationContext;
