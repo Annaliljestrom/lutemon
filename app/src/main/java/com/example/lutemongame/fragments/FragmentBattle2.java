@@ -40,14 +40,9 @@ public class FragmentBattle2 extends Fragment {
                     public void onClick(View view) {
                         switchToBattleFightActivity(view);
                     }
-
                 });
-
             }
-
-
         });
-
         return view;
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -56,11 +51,7 @@ public class FragmentBattle2 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new BattleListAdapter2(getContext(), lutemons);
         recyclerView.setAdapter(adapter);
-
-
     }
-
-
 
     public void switchToBattleFightActivity(View view) {
         Intent intent = new Intent(view.getContext(), BattleFightActivity.class);
