@@ -154,6 +154,10 @@ public class CombatCalculations {
                     lutemon1.getName() + " taso on nyt " + lutemon1.getLevel() + "\nxp:tä on " + lutemon1.getExperience());
             System.out.println("Voitot ovat " + lutemon1.getVictories() + "\n");
             boolean y = true;
+            if (Inventory.lutemons.contains(lutemon2)){
+                Inventory.deadLutemons.add(lutemon2);
+                Inventory.lutemons.remove(lutemon2);
+            }
             return y;
         }
 
