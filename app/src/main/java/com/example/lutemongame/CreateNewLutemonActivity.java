@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateNewLutemonActivity extends AppCompatActivity {
-
     private int id=0;
     private EditText editText;
     private String name;
@@ -22,12 +20,15 @@ public class CreateNewLutemonActivity extends AppCompatActivity {
     }
 
     public void createLutemonType(View view){
+        // Getting the given lutemon's name
         name = editText.getText().toString();
+        // Creating a new lutemon
         Lutemon lutemon = new Lutemon();
+        // Getting the selected colour
         RadioGroup rgLutemonType = findViewById(R.id.colourCroup);
         Intent intent = new Intent(this, MainActivity.class);
-
         switch (rgLutemonType.getCheckedRadioButtonId()){
+            // Setting the lutemons's colortype, name, id and returning to the main activity
             case R.id.whiteButton:
                 lutemon.setColor(Lutemon.ColorType.WHITE);
                 lutemon.createLutemon(lutemon,name,id);

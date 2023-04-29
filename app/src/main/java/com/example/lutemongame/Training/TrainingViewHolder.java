@@ -19,10 +19,9 @@ public class TrainingViewHolder extends RecyclerView.ViewHolder {
     TextView lutemonName, lutemonColour,lutemonAttack,lutemonDefence,lutemonHealth,lutemonLevel;
     Button selectedLutemon,btnFight;
 
-
-
     public TrainingViewHolder(@NonNull View itemView) {
         super(itemView);
+        // saving buttons and text views to the variables
         btnFight = itemView.findViewById(R.id.btnFight);
         selectedLutemon = itemView.findViewById(R.id.btnSelect1);
         lutemonImage= itemView.findViewById(R.id.lutemonImage);

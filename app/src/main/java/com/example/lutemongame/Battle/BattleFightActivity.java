@@ -1,9 +1,7 @@
 package com.example.lutemongame.Battle;
 
 import static com.example.lutemongame.Inventory.getBattleLutemons;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.example.lutemongame.CombatArenas;
 import com.example.lutemongame.Lutemon;
 import com.example.lutemongame.MainActivity;
@@ -25,7 +22,6 @@ import com.example.lutemongame.R;
 public class BattleFightActivity extends AppCompatActivity {
     ImageView lutemon1Image, lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image, imageUseAbility1, imageDoge;
     TextView lutemon1Name, lutemon2Name, lutemon1Health, lutemon2Health;
-
     public static TextView txtWinner, txtLvlUp;
     Button inventory, btnReturn;
     ProgressBar progressBar1, progressBar2;

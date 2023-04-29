@@ -35,6 +35,7 @@ public class FragmentBattle2 extends Fragment {
         btnFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // listening if fight-button is clicked
                 btnFight.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -47,6 +48,7 @@ public class FragmentBattle2 extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // taking lutemons from the lutemonList and adding them to the recyclerview
         recyclerView = view.findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new BattleListAdapter2(getContext(), lutemons);
@@ -54,6 +56,7 @@ public class FragmentBattle2 extends Fragment {
     }
 
     public void switchToBattleFightActivity(View view) {
+        // switching to the view where the battle is going to start
         Intent intent = new Intent(view.getContext(), BattleFightActivity.class);
         view.getContext().startActivity(intent);
     }
