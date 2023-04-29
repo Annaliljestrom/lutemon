@@ -69,7 +69,7 @@ public class BattleFightActivity extends AppCompatActivity {
                 inventory.setClickable(false);
                 Boolean FightOver = CombatArenas.trainingArena(0);
 
-                if (FightOver == true) {
+                if (FightOver) {
                     btnReturn.setVisibility(View.VISIBLE);
                     txtWinner.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);

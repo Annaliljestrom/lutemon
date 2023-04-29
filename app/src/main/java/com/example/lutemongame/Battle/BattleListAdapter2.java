@@ -22,7 +22,7 @@ import com.example.lutemongame.R;
 import java.util.ArrayList;
 
 public class BattleListAdapter2 extends RecyclerView.Adapter<BattleViewHolder> {
-    private Context context;
+    private final Context context;
 
     public Context getContext() {
         return context;
@@ -32,10 +32,7 @@ public class BattleListAdapter2 extends RecyclerView.Adapter<BattleViewHolder> {
         return lutemons;
     }
 
-    private ArrayList<Lutemon> lutemons ;
-    Lutemon lutemon2;
-    private int i=1;
-    private Boolean savedLutemon1 = false, savedLutemon2 = false, fightStarted = false;
+    private final ArrayList<Lutemon> lutemons ;
 
     public BattleListAdapter2(Context applicationContext, ArrayList<Lutemon> lutemons) {
         this.context=applicationContext;
@@ -56,9 +53,9 @@ public class BattleListAdapter2 extends RecyclerView.Adapter<BattleViewHolder> {
         Lutemon lutemon = lutemons.get(position);
 
         holder.lutemonName.setText(lutemon.getName());
-        holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
-        holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
-        holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
+        holder.lutemonColour.setText("Type = "+ lutemon.getColor());
+        holder.lutemonAttack.setText("Attack = "+ lutemon.getAttack());
+        holder.lutemonDefence.setText("Defence = " + lutemon.getDefence());
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getLevel());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
