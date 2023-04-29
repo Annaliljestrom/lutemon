@@ -16,6 +16,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
         itemImage = itemView.findViewById(R.id.itemImage);
+
         txtItemName = itemView.findViewById(R.id.txtItemName);
         txtItemNumber = itemView.findViewById(R.id.txtItemNumber);
 

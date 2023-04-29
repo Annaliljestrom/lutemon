@@ -388,6 +388,7 @@ public class BattleFightActivity extends AppCompatActivity {
                 });
             }
 
+
             @Override
             public void onAnimationRepeat(Animation animation) {
 

@@ -29,6 +29,7 @@ public class ItemListActivity extends AppCompatActivity {
 
        // inventory.backpackContents();
 
+
     }
 
     public void switchToFightView(View view) {
