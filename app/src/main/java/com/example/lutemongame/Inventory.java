@@ -231,6 +231,6 @@ public class Inventory {
         return lutemons;
     }
     public static ArrayList<Lutemon> getDeadLutemons(){
-        return lutemons;
+        return deadLutemons;
     }
 }
