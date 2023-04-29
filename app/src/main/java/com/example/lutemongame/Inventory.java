@@ -172,13 +172,19 @@ public class Inventory {
     }
 
     public void saveLutemons(Context context) {
+        // Creating a list that will be saved in to the file
+        ArrayList<ArrayList<Lutemon>> lutemonsToSave = new ArrayList<ArrayList<Lutemon>>();
+        // Adding alive and dead lutemons to the list
+        lutemonsToSave.add(lutemons);
+        lutemonsToSave.add(deadLutemons);
         try {
+            // Writing the file "savedLutemons.data
             ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data", Context.MODE_PRIVATE));
-            fileWriter.writeObject(lutemons);
+            fileWriter.writeObject(lutemonsToSave);
             fileWriter.close();
-            System.out.println("Valmista tuli!");
+            System.out.println("Done!");
         } catch (IOException e) {
-            System.out.println("pieleen meni");
+            System.out.println("The writing didn't work");
         }
     }
 
@@ -189,21 +195,35 @@ public class Inventory {
     public void loadLutemons(Context context) {
         try {
             ObjectInputStream fileReader = new ObjectInputStream(context.openFileInput("savedLutemons.data"));
-            ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
-            int index = 0;
-            int size = lutemonsToAdd.size();
-            while (index < size) {
-                Lutemon lutemon = lutemonsToAdd.get(index);
+            // Reading the file, in order to get both alive and dead lutemons
+            ArrayList<ArrayList<Lutemon>> lutemonsToLoad = (ArrayList<ArrayList<Lutemon>>) fileReader.readObject();
+            // Saving alive and dead lutemons to different lists
+            ArrayList<Lutemon> lutemonsToLoadAlive = lutemonsToLoad.get(0);
+            ArrayList<Lutemon> lutemonsToLoadDead = lutemonsToLoad.get(1);
+            // Adding alive lutemons to game's lutemons list
+            int n = 0;
+            int sizeAlive = lutemonsToLoadAlive.size();
+            while (n < sizeAlive) {
+                Lutemon lutemon = lutemonsToLoadAlive.get(n);
                 lutemons.add(lutemon);
-                index++;
+                n++;
+            }
+            // Adding dead lutemons to game's dead lutemons list
+            int m = 0;
+            int sizeDead = lutemonsToLoadDead.size();
+            while (m < sizeDead) {
+                Lutemon lutemon = lutemonsToLoadDead.get(m);
+                deadLutemons.add(lutemon);
+                m++;
             }
             fileReader.close();
+            System.out.println("Done!");
         } catch (FileNotFoundException e) {
-            System.out.println("Tiedostoa ei löytynyt.");
+            System.out.println("File not found.");
         } catch (IOException e) {
-            System.out.println("Tiedoston lukeminen ei onnistunut.");
+            System.out.println("The reading didn't work");
         } catch (ClassNotFoundException e) {
-            System.out.println("Tiedoston lukeminen ei onnistunut");
+            System.out.println("The reading didn't work");
         }
     }
 

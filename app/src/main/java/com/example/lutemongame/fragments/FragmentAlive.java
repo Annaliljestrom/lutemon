@@ -27,7 +27,7 @@ public class FragmentAlive extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // taking lutemons from the lutemonList and adding them to the recyclerview
+        // Taking lutemons from the lutemon list and adding them to the recyclerview
         recyclerView = view.findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new lutemonListAdapter(getContext(), lutemons);

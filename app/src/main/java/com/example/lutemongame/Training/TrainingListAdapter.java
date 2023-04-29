@@ -45,9 +45,9 @@ public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TrainingViewHolder holder, int position) {
-        // taking a lutemon from the list
+        // Taking a lutemon from the list
         Lutemon lutemon = lutemons.get(position);
-        // setting the lutemon's stats to the list in training
+        // Setting the lutemon's stats to the list in training
         holder.lutemonName.setText(lutemon.getName());
         holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
         holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
@@ -59,7 +59,7 @@ public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder
         holder.selectedLutemon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // choosing which lutemon is going to be trained
+                // Choosing which lutemon is going to be trained
                 lutemon1 = lutemons.get(holder.getAdapterPosition());
                 battleLutemons.set(0,lutemon1);
             };

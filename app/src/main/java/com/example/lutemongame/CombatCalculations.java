@@ -13,11 +13,11 @@ public class CombatCalculations {
     private static int attackDamage;
 
     public static int damageLutemon(Lutemon attacker, Lutemon defender) {
-        // calculating attackdamage and defence number with random effect
+        // Calculating attack damage and defence number with random effect
         int attackDamageRoll = setAttackDamageRoll(attacker, defender);
         int defenceRoll = setDefenceRoll(defender);
         int damage = attackDamageRoll - defenceRoll;
-        // minimum damage is 1
+        // Minimum damage is 1
         if (damage <= 0) {
             damage = 1;
         }
@@ -103,7 +103,7 @@ public class CombatCalculations {
     }
 
     public static int randomizeAttackDamage(int attackDamage) {
-        // minimum damage is 1
+        // Minimum damage is 1
         if(attackDamage<=0){
             attackDamage=1;
         }
@@ -122,7 +122,7 @@ public class CombatCalculations {
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getLevel())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getLevel())));
         BattleFightActivity.levelUp(oldLevel, lutemon.getLevel(),lutemon.getName());
-        // Getting new skills when lutemon is leveling up
+        // Getting possible new abilities when lutemon is leveling up
         if (lutemon.getLevel()>= 5){
             switch(lutemon.getColor()){
                 case WHITE:

@@ -28,7 +28,7 @@ public class CreateNewLutemonActivity extends AppCompatActivity {
         RadioGroup rgLutemonType = findViewById(R.id.colourCroup);
         Intent intent = new Intent(this, MainActivity.class);
         switch (rgLutemonType.getCheckedRadioButtonId()){
-            // Setting the lutemons's colortype, name, id and returning to the main activity
+            // Setting the lutemons's colortype, name and id and returning to the main activity
             case R.id.whiteButton:
                 lutemon.setColor(Lutemon.ColorType.WHITE);
                 lutemon.createLutemon(lutemon,name,id);

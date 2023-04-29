@@ -35,7 +35,7 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
         // Getting a lutemon from the dead lutemons list
         Lutemon lutemon = deadLutemons.get(position);
         // Setting lutemon's name, colour, attack, defence, health, level, image, battles,
-        // training days, victories and defeats to the dead lutemons list
+        // training days, victories and defeats for the lutemon in the list view
         holder.lutemonName.setText(lutemon.getName());
         holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
         holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
@@ -51,6 +51,7 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
 
     @Override
     public int getItemCount() {
+        // Tells the length of the dead lutemons list
         return deadLutemons.size();
     }
 }
