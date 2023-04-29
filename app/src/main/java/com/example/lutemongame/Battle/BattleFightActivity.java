@@ -36,7 +36,6 @@ public class BattleFightActivity extends AppCompatActivity {
         setContentView(R.layout.fight_view);
         Lutemon lutemon1 = getBattleLutemons().get(0);
         Lutemon lutemon2 = getBattleLutemons().get(1);
-
         playerLutemonImage = findViewById(R.id.playerLutemonImage);
         ability1Image = findViewById(R.id.ability1Image);
         ability2Image = findViewById(R.id.ability2Image);
@@ -132,8 +131,21 @@ public class BattleFightActivity extends AppCompatActivity {
     public void resetView(Lutemon lutemon1, Lutemon lutemon2) {
 
         playerLutemonImage.setImageResource(lutemon1.getImage());
-        ability1Image.setImageResource(R.drawable.poisonous_fart);
-        ability2Image.setImageResource(R.drawable.awkward_stare);
+        ability1Image.setImageResource(R.drawable.meatmallet_transparent);
+        if (lutemon1.getColor() == Lutemon.ColorType.WHITE) {
+            ability2Image.setImageResource(R.drawable.poisonous_fart);
+        } else if (lutemon1.getColor() == Lutemon.ColorType.GREEN) {
+            ability2Image.setImageResource(R.drawable.awkward_stare);
+        } else if (lutemon1.getColor() == Lutemon.ColorType.PINK) {
+            ability2Image.setImageResource(R.drawable.fit_of_rage);
+        } else if (lutemon1.getColor() == Lutemon.ColorType.ORANGE) {
+            ability2Image.setImageResource(R.drawable.infectious_bite_of_syphilis);
+        } else if (lutemon1.getColor() == Lutemon.ColorType.BLACK) {
+            ability2Image.setImageResource(R.drawable.disruptive_meme);
+        }
+
+        //ability1Image.setImageResource(R.drawable.poisonous_fart);
+        //ability2Image.setImageResource(R.drawable.awkward_stare);
         lutemon1Health.setText(lutemon1.getHealth() + "/" + lutemon1.getmaxHP());
         lutemon2Health.setText(lutemon2.getHealth() + "/" + lutemon2.getmaxHP());
         lutemon1Name.setText(lutemon1.getName());

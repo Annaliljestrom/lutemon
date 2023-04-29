@@ -24,7 +24,7 @@ public class ItemListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ItemListAdapter(getApplicationContext(), inventory.getItemList()));
 
-        inventory.backpackContents();
+       // inventory.backpackContents();
 
     }
 }
