@@ -4,6 +4,7 @@ import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Inventory;
 import com.example.lutemongame.Lutemon;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatCalculations {
@@ -125,7 +126,6 @@ public class CombatCalculations {
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getLevel())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getLevel())));
         BattleFightActivity.levelUp(oldLevel, lutemon.getLevel(),lutemon.getName());
-        lutemon.setHealth(lutemon.getmaxHP());
         //getting new skills when leveling up
         if (lutemon.getLevel()>= 5){
             switch(lutemon.getColor()){
@@ -148,55 +148,40 @@ public class CombatCalculations {
 
 
     }
-    public static boolean checkIfAlive(Lutemon lutemon, Lutemon dummy) {
-        if (dummy.getHealth() <= 0) {
+    public static boolean checkIfAlive(Lutemon lutemon1, Lutemon lutemon2) {
+        if (lutemon2.getHealth() <= 0) {
             //setting winner name on screen
-            BattleFightActivity.setWinner(lutemon.getName());
-            lutemon.setVictories(+1);
-            dummy.setDefeats(+1);
-            dummy.setHealth(0);
-            lutemon.resetHp();
+            BattleFightActivity.updateStats(lutemon1, lutemon2);
 
-            System.out.println("Taistelun voittaja on " + lutemon.getName() + "\n");
-            System.out.println(lutemon.getName() + " saa voitosta +2 exp\n");
+            System.out.println("Taistelun voittaja on " + lutemon1.getName() + "\n");
+            System.out.println(lutemon1.getName() + " saa voitosta +2 exp\n");
 
-            lutemon.setExperience(lutemon.getExperience() + 2);
-            evolving(lutemon);
+            lutemon1.setExperience(lutemon1.getExperience() + 2);
+            evolving(lutemon1);
             System.out.println(
-                    lutemon.getName() + " taso on nyt " + lutemon.getLevel() + "\nxp:tä on " + lutemon.getExperience());
+                    lutemon1.getName() + " taso on nyt " + lutemon1.getLevel() + "\nxp:tä on " + lutemon1.getExperience());
 
-            lutemon.setStats("wins");
-            System.out.println("Voitot ovat " + lutemon.getStats("wins") + "\n");
-            if (Inventory.lutemons.contains(dummy)){
-                Inventory.deadLutemons.add(dummy);
-                Inventory.lutemons.remove(dummy);
-
-            }
-
-            boolean y = false;
+            lutemon1.setStats("wins");
+            System.out.println("Voitot ovat " + lutemon1.getStats("wins") + "\n");
+            boolean y = true;
             return y;
         }
 
-        if (lutemon.getHealth() <= 0) {
-            BattleFightActivity.setWinner(dummy.getName());
-            dummy.setVictories(+1);
-            lutemon.setDefeats(+1);
-            dummy.resetHp();
-
-            System.out.println("Taistelun voittaja " + dummy.getName());
-            lutemon.setHealth(0);
-            if (Inventory.lutemons.contains(lutemon)){
-                Inventory.deadLutemons.add(lutemon);
-                Inventory.lutemons.remove(lutemon);
-
+        if (lutemon1.getHealth() <= 0) {
+            BattleFightActivity.updateStats(lutemon2, lutemon1);
+            System.out.println("Taistelun voittaja " + lutemon2.getName());
+            lutemon1.setHealth(0);
+            if (Inventory.lutemons.contains(lutemon1)){
+                Inventory.deadLutemons.add(lutemon1);
+                Inventory.lutemons.remove(lutemon1);
             }
 
 
-            System.out.println(lutemon.getName() + " is dead and needs to be revived");
+            System.out.println(lutemon1.getName() + " is dead and needs to be revived");
             // add method to add dead lutemon to deadlutemons array list and function how to
             // revive that lutemon and restore stats??
 
-            boolean y = false;
+            boolean y = true;
             return y;
         }
 

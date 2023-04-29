@@ -23,12 +23,13 @@ import com.example.lutemongame.MainActivity;
 import com.example.lutemongame.R;
 
 public class BattleFightActivity extends AppCompatActivity {
-    ImageView lutemon1Image,lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image, imageUseAbility1,imageDoge;
-    TextView lutemon1Name,lutemon2Name, lutemon1Health, lutemon2Health;
+    ImageView lutemon1Image, lutemon1ImageSmall, lutemon2Image, playerLutemonImage, ability1Image, ability2Image, imageUseAbility1, imageDoge;
+    TextView lutemon1Name, lutemon2Name, lutemon1Health, lutemon2Health;
 
-    public static TextView txtWinner,txtLvlUp;
+    public static TextView txtWinner, txtLvlUp;
     Button inventory, btnReturn;
     ProgressBar progressBar1, progressBar2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class BattleFightActivity extends AppCompatActivity {
 
         playerLutemonImage = findViewById(R.id.playerLutemonImage);
         ability1Image = findViewById(R.id.ability1Image);
-        ability2Image= findViewById(R.id.ability2Image);
+        ability2Image = findViewById(R.id.ability2Image);
         progressBar1 = findViewById(R.id.progressBar1);
         progressBar2 = findViewById(R.id.progressBar2);
         lutemon1Health = findViewById(R.id.txtHP);
@@ -61,20 +62,18 @@ public class BattleFightActivity extends AppCompatActivity {
         imageDoge.setVisibility(View.GONE);
 
 
-
-
-        resetView(lutemon1,lutemon2);
+        resetView(lutemon1, lutemon2);
 
         ability1Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animationFart(lutemon2,lutemon1);
+                animationFart(lutemon2, lutemon1);
                 ability1Image.setClickable(false);
                 ability2Image.setClickable(false);
                 inventory.setClickable(false);
                 Boolean FightOver = CombatArenas.trainingArena(0);
 
-                if (FightOver){
+                if (FightOver == true) {
                     btnReturn.setVisibility(View.VISIBLE);
                     txtWinner.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
@@ -86,14 +85,11 @@ public class BattleFightActivity extends AppCompatActivity {
         });
 
 
-
-
-
         ability2Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                animationDoge(lutemon2,lutemon1);
+                animationDoge(lutemon2, lutemon1);
                 ability1Image.setClickable(false);
                 ability2Image.setClickable(false);
                 inventory.setClickable(false);
@@ -101,7 +97,7 @@ public class BattleFightActivity extends AppCompatActivity {
                 //calculating proggressbar status and health text
                 Boolean FightOver = CombatArenas.trainingArena(1);
 
-                if (FightOver){
+                if (FightOver) {
                     btnReturn.setVisibility(View.VISIBLE);
                     ability1Image.setClickable(false);
                     ability2Image.setClickable(false);
@@ -110,36 +106,36 @@ public class BattleFightActivity extends AppCompatActivity {
                     lutemon2.setBattles(+1);
 
 
-
                 }
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetView(lutemon1,lutemon2);
+                resetView(lutemon1, lutemon2);
                 Intent intent = new Intent(BattleFightActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-            });
+        });
 
 
     }
 
 
-    public int progressBarChange( int hp, int maxhp){
+    public int progressBarChange(int hp, int maxhp) {
 
-        float percentageHP = ((float)hp/(float)maxhp) *100;
-    return Math.round(percentageHP);
+        float percentageHP = ((float) hp / (float) maxhp) * 100;
+        return Math.round(percentageHP);
     }
-    public void resetView(Lutemon lutemon1, Lutemon lutemon2){
+
+    public void resetView(Lutemon lutemon1, Lutemon lutemon2) {
 
         playerLutemonImage.setImageResource(lutemon1.getImage());
         ability1Image.setImageResource(R.drawable.poisonous_fart);
         ability2Image.setImageResource(R.drawable.awkward_stare);
-        lutemon1Health.setText(lutemon1.getHealth()+"/"+lutemon1.getmaxHP());
-        lutemon2Health.setText(lutemon2.getHealth()+"/"+lutemon2.getmaxHP());
+        lutemon1Health.setText(lutemon1.getHealth() + "/" + lutemon1.getmaxHP());
+        lutemon2Health.setText(lutemon2.getHealth() + "/" + lutemon2.getmaxHP());
         lutemon1Name.setText(lutemon1.getName());
         lutemon2Name.setText(lutemon2.getName());
         lutemon1Image.setImageResource(lutemon1.getImage());
@@ -149,9 +145,20 @@ public class BattleFightActivity extends AppCompatActivity {
         progressBar2.setProgress(100);
         txtWinner.setText("Winner is");
     }
-    public static void setWinner(String winner){
-        txtWinner.setText("Winner is "+winner+"!");
+
+    public static void updateStats(Lutemon winner, Lutemon loser) {
+        txtWinner.setText("Winner is " + winner.getName() + "!");
+        if (winner.getColor() == Lutemon.ColorType.DUMMY || loser.getColor() == Lutemon.ColorType.DUMMY) {
+            winner.setTrainingDays(+1);
+            loser.setTrainingDays(+1);
+        } else {
+            winner.setBattles(+1);
+            loser.setBattles(+1);
+            winner.setVictories(+1);
+            loser.setDefeats(+1);
+        }
     }
+
     public static void levelUp(int oldLevel, int newLevel, String lutemonName){
         if (oldLevel!=newLevel){
             txtLvlUp.setVisibility(View.VISIBLE);

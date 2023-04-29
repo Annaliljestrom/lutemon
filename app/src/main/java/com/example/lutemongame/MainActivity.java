@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
     public void switchToTrainLutemon(View view) {
         Intent intent = new Intent(this, TrainingActivity.class);
         startActivity(intent);

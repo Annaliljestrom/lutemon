@@ -158,8 +158,6 @@ public class Inventory {
                 System.out.println("Lutemon is revived\n");
                 lutemons.add((Lutemon) deadLutemons.get(selectedLutemon));
                 deadLutemons.remove(selectedLutemon);
-
-
             } catch (NumberFormatException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -177,40 +175,6 @@ public class Inventory {
         } catch (IOException e) {
             System.out.println("pieleen meni");
         }
-
-        /* int listSize = lutemons.size();
-        System.out.println(Integer.toString(listSize));
-        int i = 0;
-        while (i < listSize) {
-            Lutemon lutemon = lutemons.get(i);
-            String lutemonName = lutemon.getName();
-            // String lutemonColorType = lutemon.getColor().toString();
-            String lutemonAttack = Integer.toString(lutemon.getAttack());
-            String lutemonDefece = Integer.toString(lutemon.getDefence());
-            String lutemonMaxHP = Integer.toString(lutemon.getmaxHP());
-            String lutemonExperience = Integer.toString(lutemon.getExperience());
-            String lutemonHealth = Integer.toString(lutemon.getHealth());
-            String lutemonTaso = Integer.toString(lutemon.getTaso());
-            FileOutputStream fileOut = null;
-            outputWrite
-            try {
-                fileOut = new FileOutputStream("savedLutemons.txt", true);
-                outputWrite = new OutputStreamWriter(fileOut, Charset.forName("UTF-16"));
-                BufferedWriter bw = new BufferedWriter(outputWrite);
-                // ObjectOutputStream fileWriter = new ObjectOutputStream(context.openFileOutput("savedLutemons.data",Context.MODE_APPEND));
-                bw.write("Lutemon " + lutemonName + ":\n- Väri: " + "\n- Hyökkäys: ");
-                        // + lutemonAttack + "\n- Puolustus: " + lutemonDefece + "\n- Maksimi elämäpisteet: "
-                        //+ lutemonMaxHP + "\n- Kokemus: " + lutemonExperience + "\n- Elämäpisteet: "
-                        // + lutemonHealth + "\n- Taso: " + lutemonTaso + "\n");
-                bw.flush();
-                bw.close();
-                // fileWriter.close();
-                System.out.println("Valmista tuli!");
-            } catch (IOException e) {
-                System.out.println("pieleen meni");
-            }
-            i++;
-        }*/
     }
 
     public static ArrayList<Lutemon> getBattleLutemons() {
@@ -223,7 +187,7 @@ public class Inventory {
             ArrayList<Lutemon> lutemonsToAdd = (ArrayList<Lutemon>) fileReader.readObject();
             int index = 0;
             int size = lutemonsToAdd.size();
-            while(index < size) {
+            while (index < size) {
                 Lutemon lutemon = lutemonsToAdd.get(index);
                 lutemons.add(lutemon);
                 index++;
@@ -236,28 +200,6 @@ public class Inventory {
         } catch (ClassNotFoundException e) {
             System.out.println("Tiedoston lukeminen ei onnistunut");
         }
-
-        /*int i = 0;
-        while (true) {
-            try {
-                ObjectInputStream fileIn = new ObjectInputStream(context.openFileInput("savedLutemons.txt"));
-                InputStreamReader inputRead = new InputStreamReader(fileIn);
-                BufferedReader fileReader = new BufferedReader(inputRead);
-                String nameLine = fileReader.readLine();
-                System.out.println(nameLine);
-                String[] separeted = nameLine.split(" ");
-                String lutemonName = separeted[1];
-                lutemonName.replace(":", "");
-                fileReader.close();
-                System.out.println("Valmista tuli");
-            } catch (FileNotFoundException e) {
-                System.out.println("Pieleen meni");
-            } catch (IOException e) {
-                System.out.println("Pieleen meni toisella tavalla");
-            }
-            i++;
-        }
-    }*/
     }
 
     public static ArrayList<Lutemon> getLutemons(){
