@@ -1,15 +1,10 @@
 package com.example.lutemongame;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -45,9 +40,9 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
         Lutemon lutemon = lutemons.get(position);
 
         holder.lutemonName.setText(lutemon.getName());
-        holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
-        holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
-        holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
+        holder.lutemonColour.setText("Type = "+ lutemon.getColor());
+        holder.lutemonAttack.setText("Attack = "+ lutemon.getAttack());
+        holder.lutemonDefence.setText("Defence = " + lutemon.getDefence());
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getLevel());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());

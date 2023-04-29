@@ -1,16 +1,16 @@
 package com.example.lutemongame;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.lutemongame.Battle.BattleFightActivity;
 import com.example.lutemongame.Battle.BattleTabActivity1;
 import com.example.lutemongame.Training.TrainingActivity;
-import com.example.lutemongame.fragments.FragmentAlive;
 
 public class MainActivity extends AppCompatActivity {
     public static Inventory inventory = Inventory.getInstance();
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             if (view.getId() == R.id.listLutemonsButton) {
                 Intent intent = new Intent(view.getContext(), TabActivity.class);
                 startActivity(intent);
-                return;
             }
         }
     };
