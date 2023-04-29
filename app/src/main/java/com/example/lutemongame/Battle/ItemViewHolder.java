@@ -19,5 +19,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         txtItemName = itemView.findViewById(R.id.txtItemName);
         txtItemNumber = itemView.findViewById(R.id.txtItemNumber);
 
+
     }
 }

@@ -404,6 +404,7 @@ public class BattleFightActivity extends AppCompatActivity {
     public void switchToItemList(View view) {
         Intent intent = new Intent(this, ItemListActivity.class);
         startActivity(intent);
+
     }
 
 

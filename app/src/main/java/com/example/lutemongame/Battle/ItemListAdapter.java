@@ -18,6 +18,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemViewHolder> {
     public ItemListAdapter(Context context, ArrayList<String> itemList) {
         this.context = context;
         this.itemList = itemList;
+
     }
 
     @NonNull

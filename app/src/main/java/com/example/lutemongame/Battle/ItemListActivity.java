@@ -34,5 +34,6 @@ public class ItemListActivity extends AppCompatActivity {
     public void switchToFightView(View view) {
         Intent intent = new Intent(this, BattleFightActivity.class);
         startActivity(intent);
+
     }
 }
