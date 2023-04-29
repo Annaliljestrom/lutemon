@@ -48,7 +48,7 @@ public class BattleTabActivity1 extends AppCompatActivity {
 
 
     public static void setFragmentTab1(int j) {
-        fragmentArea.setCurrentItem(1);
+        fragmentArea.setCurrentItem(j);
     }
 
 

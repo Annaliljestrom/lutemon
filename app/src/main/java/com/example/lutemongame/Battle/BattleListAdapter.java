@@ -18,7 +18,7 @@ import com.example.lutemongame.R;
 import java.util.ArrayList;
 
 public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
-    private Context context;
+    private final Context context;
 
     public Context getContext() {
         return context;
@@ -51,9 +51,9 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
         Lutemon lutemon = lutemons.get(position);
 
         holder.lutemonName.setText(lutemon.getName());
-        holder.lutemonColour.setText("Type = "+String.valueOf(lutemon.getColor()));
-        holder.lutemonAttack.setText("Attack = "+String.valueOf(lutemon.getAttack()));
-        holder.lutemonDefence.setText("Defence = " +String.valueOf(lutemon.getDefence()));
+        holder.lutemonColour.setText("Type = "+ lutemon.getColor());
+        holder.lutemonAttack.setText("Attack = "+ lutemon.getAttack());
+        holder.lutemonDefence.setText("Defence = " + lutemon.getDefence());
         holder.lutemonHealth.setText("Hp = "+lutemon.getHealth()+"/"+lutemon.getmaxHP());
         holder.lutemonLevel.setText("Level = "+lutemon.getLevel());
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
@@ -69,7 +69,7 @@ public class BattleListAdapter extends RecyclerView.Adapter<BattleViewHolder> {
                 System.out.println("Lutemon 1 valittu:" + lutemon1.getName());
                 BattleTabActivity1.setFragmentTab1(1);
 
-            };
+            }
 
 
         });
