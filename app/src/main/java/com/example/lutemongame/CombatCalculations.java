@@ -9,7 +9,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatCalculations {
     private static int defenceRoll;
-
     private static int attackDamageRoll;
     private static int attackDamage;
 
@@ -18,7 +17,7 @@ public class CombatCalculations {
         int attackDamageRoll = setAttackDamageRoll(attacker, defender);
         int defenceRoll = setDefenceRoll(defender);
         int damage = attackDamageRoll - defenceRoll;
-        // minimum dmg is 1
+        // minimum damage is 1
         if (damage <= 0) {
             damage = 1;
         }
@@ -26,10 +25,9 @@ public class CombatCalculations {
     }
 
     public static int setAttackDamageRoll(Lutemon attacker, Lutemon target) {
-        // setting attack damage amount against target lutemon
+        // Setting attack damage amount against target lutemon
         attackDamage = attacker.getAbilityDamage();
         randomizeAttackDamage(attackDamage);
-
         switch (attacker.getColor()) {
             case WHITE:
                 if (target.getColor() == Lutemon.ColorType.GREEN || target.getColor() == Lutemon.ColorType.PINK) {
@@ -91,23 +89,21 @@ public class CombatCalculations {
                 } else if (target.getColor() == Lutemon.ColorType.WHITE || target.getColor() == Lutemon.ColorType.DUMMY)
                     attackDamageRoll = randomizeAttackDamage(attackDamage) * 10*attacker.getAttack();
                 break;
-
             default:
                 break;
         }
-
         return attackDamage*(int)Math.round(1+attacker.getAttack()*0.1);
-
     }
 
     public static int setDefenceRoll(Lutemon defender) {
-        // setting defence number to random from 0 to defender defence
+        // Setting defence number to random from 0 to defender defence
         defenceRoll = ThreadLocalRandom.current().nextInt(1, defender.getDefence()+1);
 
         return defenceRoll;
     }
 
     public static int randomizeAttackDamage(int attackDamage) {
+        // minimum damage is 1
         if(attackDamage<=0){
             attackDamage=1;
         }
@@ -119,14 +115,14 @@ public class CombatCalculations {
     }
 
     public static void evolving(Lutemon lutemon) {
+        // A lutemon evolves if it has enough experience points
         int oldLevel = lutemon.getLevel();
-
         lutemon.setLevel(Math.floor(0.5 + Math.sqrt((2 * lutemon.getExperience() + 0.25))));
         lutemon.setAttack((int) Math.round(lutemon.getAttack() + (0.3 * lutemon.getLevel())));
         lutemon.setDefence((int) Math.round(lutemon.getDefence() + (0.1 * lutemon.getLevel())));
         lutemon.setmaxHP((int) Math.round(lutemon.getmaxHP() + (0.5 * lutemon.getLevel())));
         BattleFightActivity.levelUp(oldLevel, lutemon.getLevel(),lutemon.getName());
-        //getting new skills when leveling up
+        // Getting new skills when lutemon is leveling up
         if (lutemon.getLevel()>= 5){
             switch(lutemon.getColor()){
                 case WHITE:
@@ -145,53 +141,41 @@ public class CombatCalculations {
                     break;
             }
         }
-
-
     }
     public static boolean checkIfAlive(Lutemon lutemon1, Lutemon lutemon2) {
         if (lutemon2.getHealth() <= 0) {
-            //setting winner name on screen
+            // Updating lutemons' stats
             BattleFightActivity.updateStats(lutemon1, lutemon2);
-
+            // Setting winner name on screen
             System.out.println("Taistelun voittaja on " + lutemon1.getName() + "\n");
             System.out.println(lutemon1.getName() + " saa voitosta +2 exp\n");
-
+            // Adding experience points to the winner lutemon
             lutemon1.setExperience(lutemon1.getExperience() + 2);
             evolving(lutemon1);
+            // Telling the stats of the winner lutemon
             System.out.println(
                     lutemon1.getName() + " taso on nyt " + lutemon1.getLevel() + "\nxp:tä on " + lutemon1.getExperience());
-
-            lutemon1.setStats("wins");
-            System.out.println("Voitot ovat " + lutemon1.getStats("wins") + "\n");
+            System.out.println("Voitot ovat " + lutemon1.getVictories() + "\n");
             boolean y = true;
             return y;
         }
 
         if (lutemon1.getHealth() <= 0) {
+            // Updating lutemons' stats
             BattleFightActivity.updateStats(lutemon2, lutemon1);
             System.out.println("Taistelun voittaja " + lutemon2.getName());
+            // Setting the dead lutemon's health to 0 and moving it to dead lutemons list
             lutemon1.setHealth(0);
             if (Inventory.lutemons.contains(lutemon1)){
                 Inventory.deadLutemons.add(lutemon1);
                 Inventory.lutemons.remove(lutemon1);
             }
-
-
             System.out.println(lutemon1.getName() + " is dead and needs to be revived");
-            // add method to add dead lutemon to deadlutemons array list and function how to
-            // revive that lutemon and restore stats??
-
             boolean y = true;
             return y;
         }
-
         else {
             return true;
         }
-
-    }
-
-    public static void statsReset(Lutemon lutemon) {
-        lutemon.lutemon(lutemon.getColor(), lutemon.getName(), lutemon.getId());
     }
 }
