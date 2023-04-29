@@ -1,14 +1,13 @@
 package com.example.lutemongame.Training;
 
-import static com.example.lutemongame.Inventory.lutemons;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.lutemongame.Lutemon;
+
 import com.example.lutemongame.R;
 
 public class TrainingViewHolder extends RecyclerView.ViewHolder {

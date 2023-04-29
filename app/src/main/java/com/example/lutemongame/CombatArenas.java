@@ -1,7 +1,5 @@
 package com.example.lutemongame;
 
-import com.example.lutemongame.Battle.BattleFightActivity;
-
 public class CombatArenas {
     public CombatArenas() {
     }
