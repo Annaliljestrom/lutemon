@@ -81,6 +81,11 @@ public class Inventory {
         }
     }
 
+    public void addItem2(String item) {
+
+        this.itemList.add(item);
+    }
+
     public void removeItem(String key) {
         if (backpack.containsKey(key)){
             backpack.merge(key, 1, (a, b) -> a - b);
