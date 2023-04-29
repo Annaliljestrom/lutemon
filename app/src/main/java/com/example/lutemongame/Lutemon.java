@@ -18,6 +18,12 @@ public class Lutemon extends AppCompatActivity implements Serializable {
     private int battles = 0;
     private int trainingDays = 0;
     private int victories = 0;
+    private int defeats = 0;
+    private int abilityDamage;
+    private ColorType Type;
+    protected int image;
+    LinkedHashMap<String, Integer> abilitiesMap = new LinkedHashMap<>();
+    private ArrayList<String> abilitiesList = new ArrayList<>();
 
     public int getBattles() {
         return battles;
@@ -35,8 +41,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         return defeats;
     }
 
-    private int defeats = 0;
-
     public void setBattles(int battles) {
         this.battles = battles;
     }
@@ -53,13 +57,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         this.defeats = defeats;
     }
 
-    private int abilityDamage;
-    private ColorType Type;
-    protected int image;
-    LinkedHashMap<String, Integer> abilitiesMap = new LinkedHashMap<>();
-    private ArrayList<String> abilitiesList = new ArrayList<>();
-
-    private HashMap<String, Integer> stats = new HashMap<>();
 
     public enum ColorType {
         WHITE,
@@ -69,11 +66,6 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         ORANGE,
         DUMMY,
         GYM,
-    }
-
-    public void scoreReset() {
-        //more stats to be added here
-        stats.put("wins", 0);
     }
 
     public void chosenColorNumber(Integer c) {
@@ -156,8 +148,12 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 maxhp = 17;
                 health = 17;
                 level = 0;
-                abilitiesMap.put("Meat mallet", 5);
-                abilitiesMap.put("Infectious bite of syphilis", 5);
+                if (abilitiesMap.containsKey("Meat mallet") && abilitiesMap.containsKey("Infectious bite of syphilis")){
+
+                }else{
+                    abilitiesMap.put("Meat mallet", 5);
+                    abilitiesMap.put("Infectious bite of syphilis",5);
+                }
 
                 break;
 
@@ -189,18 +185,27 @@ public class Lutemon extends AppCompatActivity implements Serializable {
 
     }
 
-    public void createLutemon(Lutemon lutemon, String name, int id) {
+    public void createLutemon(Lutemon lutemon, String name, int id){
 
         lutemon.lutemon(lutemon.getColor(), name, id);
         Inventory.lutemons.add(lutemon);
-        lutemon.scoreReset();
+
+
+        //Inventory.battleLutemons.add(dummy2);
+        
+        lutemon.setVictories(0);
         id++;
+    }
+    public static void listLutemons(ArrayList<Lutemon> lutemons) {
+        for (Lutemon lutemon: lutemons){
+            System.out.println(
+                    "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName() + "\n");
+        }
     }
 
     public void setHealth(int health) {
         this.health = health;
     }
-
     public int getHealth() {
         return this.health;
     }
@@ -261,24 +266,15 @@ public class Lutemon extends AppCompatActivity implements Serializable {
         this.Type = Type;
     }
 
-    public int getStats(String key) {
-
-        return stats.get(key);
-    }
-
-    public void setStats(String key) {
-        stats.put(key, stats.get(key) + 1);
-    }
-
-    public void listAbilities() {
+    public void listAbilities(){
         int i = 1;
         for (HashMap.Entry<String, Integer> set :
                 abilitiesMap.entrySet()) {
-            if (!abilitiesList.contains(set.getKey())) {
+            if (!abilitiesList.contains(set.getKey())){
                 abilitiesList.add(set.getKey());
-                System.out.println(i + " " + set.getKey() + " = "
-                        + set.getValue() + " Damage");
-            } else {
+                System.out.println(i+" "+set.getKey() + " = "
+                        + set.getValue()+" Damage");
+            }else{
                 System.out.println("ability is already on the list");
             }
 
@@ -287,25 +283,42 @@ public class Lutemon extends AppCompatActivity implements Serializable {
 
     }
 
-    public Integer getAbilityDamage(int valinta) {
-        String abilityName = abilitiesList.get(valinta);
+    public Integer getAbilityDamage(int choice){
+        System.out.println("lsit-------"+abilitiesList);
+        System.out.println("Map--------"+abilitiesMap);
+        String abilityName = abilitiesList.get(choice);
         return abilitiesMap.get(abilityName);
     }
-
-    public String getAbilityName(int valinta) {
-        return abilitiesList.get(valinta);
+    public String getAbilityName(int choice){
+        return abilitiesList.get(choice);
     }
-
-    public void setAbilityDamage(int abilityDamage) {
-        this.abilityDamage = abilityDamage;
+    public void setAbilityDamage(int abilityDamage){
+        this.abilityDamage= abilityDamage;
     }
-
-    public int getAbilityDamage() {
+    public int getAbilityDamage(){
         return this.abilityDamage;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name){
+        this.name=name;
+    }
+    public void printAllLutemonStats(){
+        for (Lutemon lutemon: Inventory.lutemons){
+            System.out.println(
+                    "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName());
+            System.out.println("Attack = "+ lutemon.getAttack() + "\nDefence = " + lutemon.getDefence() + "\n" +"HP = "+
+                    lutemon.getHealth()+"/"+ lutemon.getmaxHP()+"\nLevel = " + lutemon.getLevel()+"\n"
+            );
+        }
+        try{
+            for (Lutemon lutemon: Inventory.deadLutemons){
+                System.out.println(
+                        "Lutemon " + lutemon.getId() + "\nnimi = " + lutemon.getName());
+                System.out.println("Attack = "+ lutemon.getAttack() + "\nDefence = " + lutemon.getDefence() + "\n" +"HP = "+
+                        lutemon.getHealth()+"/"+ lutemon.getmaxHP()+"\nLevel = " + lutemon.getLevel()+"\n"
+                );
+            }
+        }catch(IndexOutOfBoundsException ignored){
+        }
     }
 
     public int getImage() {
@@ -314,6 +327,12 @@ public class Lutemon extends AppCompatActivity implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+    public void getAbilityImage(){
+
+    }
+    public void resetHp(){
+        this.setHealth(this.maxhp);
     }
 }
 

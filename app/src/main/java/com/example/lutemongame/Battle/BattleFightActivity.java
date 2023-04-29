@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.lutemongame.CombatArenas;
+import com.example.lutemongame.CreateNewLutemonActivity;
 import com.example.lutemongame.Lutemon;
 import com.example.lutemongame.MainActivity;
 import com.example.lutemongame.R;
@@ -62,7 +63,7 @@ public class BattleFightActivity extends AppCompatActivity {
         ability1Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animationFart(lutemon2, lutemon1);
+                animationMallet(lutemon2, lutemon1);
                 ability1Image.setClickable(false);
                 ability2Image.setClickable(false);
                 inventory.setClickable(false);
@@ -108,6 +109,7 @@ public class BattleFightActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 resetView(lutemon1, lutemon2);
+                btnReturn.setVisibility(View.GONE);
                 Intent intent = new Intent(BattleFightActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -128,20 +130,7 @@ public class BattleFightActivity extends AppCompatActivity {
 
         playerLutemonImage.setImageResource(lutemon1.getImage());
         ability1Image.setImageResource(R.drawable.meatmallet_transparent);
-        if (lutemon1.getColor() == Lutemon.ColorType.WHITE) {
-            ability2Image.setImageResource(R.drawable.poisonous_fart);
-        } else if (lutemon1.getColor() == Lutemon.ColorType.GREEN) {
-            ability2Image.setImageResource(R.drawable.awkward_stare);
-        } else if (lutemon1.getColor() == Lutemon.ColorType.PINK) {
-            ability2Image.setImageResource(R.drawable.fit_of_rage);
-        } else if (lutemon1.getColor() == Lutemon.ColorType.ORANGE) {
-            ability2Image.setImageResource(R.drawable.infectious_bite_of_syphilis);
-        } else if (lutemon1.getColor() == Lutemon.ColorType.BLACK) {
-            ability2Image.setImageResource(R.drawable.disruptive_meme);
-        }
-
-        //ability1Image.setImageResource(R.drawable.poisonous_fart);
-        //ability2Image.setImageResource(R.drawable.awkward_stare);
+        ability2Image.setImageResource(R.drawable.awkward_stare);
         lutemon1Health.setText(lutemon1.getHealth() + "/" + lutemon1.getmaxHP());
         lutemon2Health.setText(lutemon2.getHealth() + "/" + lutemon2.getmaxHP());
         lutemon1Name.setText(lutemon1.getName());
@@ -173,7 +162,7 @@ public class BattleFightActivity extends AppCompatActivity {
             txtLvlUp.setText(lutemonName+" Level has increased!\n"+lutemonName+" is now level "+newLevel);
         }
     }
-    public void animationFart(Lutemon lutemon2, Lutemon lutemon1){
+    public void animationMallet(Lutemon lutemon2, Lutemon lutemon1){
         //animating attacks for lutemon and opponent/dummy
         ImageView imageView = findViewById(R.id.imageLutemon1Small);
         Animation animationForward = new TranslateAnimation(0, 200, 0, -800);
@@ -410,6 +399,11 @@ public class BattleFightActivity extends AppCompatActivity {
                 // Do nothing
             }
         }, 500);
+    }
+
+    public void switchToItemList(View view) {
+        Intent intent = new Intent(this, ItemListActivity.class);
+        startActivity(intent);
     }
 
 

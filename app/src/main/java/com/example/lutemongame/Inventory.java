@@ -82,7 +82,6 @@ public class Inventory {
     }
 
     public void addItem2(String item) {
-
         this.itemList.add(item);
     }
 
@@ -93,7 +92,6 @@ public class Inventory {
         else{
             backpack.put(key, 0);
         }
-
     }
 
 

@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.example.lutemongame.CreateNewLutemonActivity;
 import com.example.lutemongame.Inventory;
 import com.example.lutemongame.R;
 
@@ -26,5 +29,10 @@ public class ItemListActivity extends AppCompatActivity {
 
        // inventory.backpackContents();
 
+    }
+
+    public void switchToFightView(View view) {
+        Intent intent = new Intent(this, BattleFightActivity.class);
+        startActivity(intent);
     }
 }
