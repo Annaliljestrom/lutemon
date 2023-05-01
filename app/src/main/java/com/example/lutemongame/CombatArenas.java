@@ -32,7 +32,6 @@ public class CombatArenas {
         if (lutemon2.getHealth() <= 0 || lutemon1.getHealth() <= 0) {
             // If not, the battle ends
             CombatCalculations.checkIfAlive(lutemon1, lutemon2);
-            System.out.println("Loppuu tässä2");
             return true;
         }
         // Opponent's turn to hit
@@ -46,7 +45,6 @@ public class CombatArenas {
         if (lutemon2.getHealth() <= 0 || lutemon1.getHealth() <= 0) {
             // If not, the battle ends
             CombatCalculations.checkIfAlive(lutemon1, lutemon2);
-            System.out.println("Loppuu tässä");
             return true;
         }
         return false;

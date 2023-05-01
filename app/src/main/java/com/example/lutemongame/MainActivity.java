@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTAB.setOnClickListener(listener);
         context = this;
 
-        inventory.addItem2("Potion");
-        inventory.addItem2("Revive potion");
+
 
     }
 

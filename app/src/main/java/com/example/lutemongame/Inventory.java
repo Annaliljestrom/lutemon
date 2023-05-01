@@ -41,7 +41,6 @@ public class Inventory {
             i++;
 
         }
-        return;
     }
 
     public void resetBackpack() {

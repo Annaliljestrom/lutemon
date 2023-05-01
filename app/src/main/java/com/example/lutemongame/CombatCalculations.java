@@ -1,7 +1,10 @@
 package com.example.lutemongame;
 
+import static com.example.lutemongame.MainActivity.inventory;
+
 import com.example.lutemongame.Battle.BattleFightActivity;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatCalculations {
@@ -149,6 +152,7 @@ public class CombatCalculations {
             // Adding experience points to the winner lutemon
             lutemon1.setExperience(lutemon1.getExperience() + 2);
             evolving(lutemon1);
+            dropItems();
             // Telling the stats of the winner lutemon
             System.out.println(
                     lutemon1.getName() + " taso on nyt " + lutemon1.getLevel() + "\nxp:tä on " + lutemon1.getExperience());
@@ -178,5 +182,17 @@ public class CombatCalculations {
         else {
             return true;
         }
+    }
+
+    private static void dropItems() {
+        Random rand = new Random();
+        int dropChance = rand.nextInt(100);
+        if (dropChance>50){
+            inventory.addItem2("Potion");
+        }
+        if (dropChance>90) {
+            inventory.addItem2("Revive potion");
+        }
+
     }
 }
