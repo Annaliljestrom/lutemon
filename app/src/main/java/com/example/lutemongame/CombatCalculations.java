@@ -187,10 +187,10 @@ public class CombatCalculations {
     private static void dropItems() {
         Random rand = new Random();
         int dropChance = rand.nextInt(100);
-        if (dropChance>50){
+        if (dropChance>0){
             inventory.addItem2("Potion");
         }
-        if (dropChance>90) {
+        if (dropChance>0) {
             inventory.addItem2("Revive potion");
         }
 

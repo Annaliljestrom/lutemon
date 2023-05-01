@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lutemongame.CreateNewLutemonActivity;
+import com.example.lutemongame.Inventory;
 import com.example.lutemongame.R;
 import com.example.lutemongame.TabActivity;
 
@@ -34,6 +36,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
                 switchToTabActivity(itemView.getContext(), getAdapterPosition());
 
+
             }
         });
 
@@ -46,4 +49,5 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+
 }

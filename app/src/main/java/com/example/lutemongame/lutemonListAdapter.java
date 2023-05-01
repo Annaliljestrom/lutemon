@@ -68,9 +68,8 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
         holder.lutemonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 lutemon.setHealth(lutemon.getmaxHP());
-                inventory.removeItem("");
+                removeItem(position);
                 switchToItemListActivity(view);
 
             }
