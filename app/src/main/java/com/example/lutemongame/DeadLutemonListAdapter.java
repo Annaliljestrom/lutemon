@@ -80,7 +80,10 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
 
     }
     public void removeItem(int position) {
-        inventory.getItemList().remove(position);
-        notifyItemRemoved(position);
+        if (inventory.getItemList().size()>= position) {
+            inventory.getItemList().remove(position);
+            notifyItemRemoved(position);
+            notifyItemRemoved(position);
+        }
     }
 }
