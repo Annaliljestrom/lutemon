@@ -69,7 +69,7 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
             @Override
             public void onClick(View view) {
                 lutemon.setHealth(lutemon.getmaxHP());
-                removeItem(position);
+                removeItem(holder.getAdapterPosition());
                 switchToItemListActivity(view);
 
             }
@@ -92,4 +92,5 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
         inventory.getItemList().remove(position);
         notifyItemRemoved(position);
     }
+
 }
