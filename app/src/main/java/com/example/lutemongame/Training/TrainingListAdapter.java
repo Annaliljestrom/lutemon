@@ -18,14 +18,19 @@ import com.example.lutemongame.R;
 import java.util.ArrayList;
 
 public class TrainingListAdapter extends RecyclerView.Adapter<TrainingViewHolder> {
-    private final Context context;
+    private Context context;
+
+    public TrainingListAdapter() {
+
+    }
+
     public Context getContext() {
         return context;
     }
     public ArrayList<Lutemon> getLutemons() {
         return lutemons;
     }
-    private final ArrayList<Lutemon> lutemons ;
+    private ArrayList<Lutemon> lutemons ;
     Lutemon lutemon1;
 
     public TrainingListAdapter(Context applicationContext, ArrayList<Lutemon> lutemons) {

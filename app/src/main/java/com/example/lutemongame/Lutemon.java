@@ -115,7 +115,7 @@ public class Lutemon extends AppCompatActivity implements Serializable {
                 maxhp = 16;
                 health = 16;
                 level = 0;
-                abilitiesMap.put("Meat mallet", 5);
+                abilitiesMap.put("Meat mallet", 500);
                 abilitiesMap.put("Disruptive meme", 5);
                 break;
 

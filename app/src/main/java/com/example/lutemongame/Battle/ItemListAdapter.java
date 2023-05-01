@@ -1,5 +1,7 @@
 package com.example.lutemongame.Battle;
 
+import static com.example.lutemongame.MainActivity.inventory;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -25,7 +27,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemViewHolder> {
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent,false));
+        return new ItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent,false),this);
     }
 
     @Override
@@ -42,5 +44,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemViewHolder> {
     @Override
     public int getItemCount() {
         return itemList.size();
+    }
+
+    public void removeItem(int position) {
+        itemList.remove(position);
+        notifyItemRemoved(position);
     }
 }
