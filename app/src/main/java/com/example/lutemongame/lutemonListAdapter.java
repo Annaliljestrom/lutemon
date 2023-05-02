@@ -89,10 +89,7 @@ public class lutemonListAdapter extends RecyclerView.Adapter<lutemonViewHolder> 
 
     }
     public void removeItem(int position) {
-        if (inventory.getItemList().size()>= position){
-        inventory.getItemList().remove(position);
-        notifyItemRemoved(position);
-        }
+
     }
 
 }

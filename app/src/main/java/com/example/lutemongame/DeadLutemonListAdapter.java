@@ -60,9 +60,18 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
             @Override
             public void onClick(View view) {
                 lutemon.setHealth(lutemon.getmaxHP());
-                removeItem(holder.getAdapterPosition());
-                deadLutemons.remove(lutemon);
-                lutemons.add(lutemon);
+                if (deadLutemons.contains(lutemon)) {
+                    removeItem(holder.getAdapterPosition());
+                    deadLutemons.remove(lutemon);
+                    lutemons.add(lutemon);
+                }else{
+                    if (inventory.getItemList().size()>= holder.getAdapterPosition()){
+                        removeItem(holder.getAdapterPosition());
+                        notifyItemRemoved(holder.getAdapterPosition());
+                    }
+                }
+
+
                 switchToItemListActivity(view);
 
             }
@@ -82,7 +91,6 @@ public class DeadLutemonListAdapter extends RecyclerView.Adapter<lutemonViewHold
     public void removeItem(int position) {
         if (inventory.getItemList().size()>= position) {
             inventory.getItemList().remove(position);
-            notifyItemRemoved(position);
             notifyItemRemoved(position);
         }
     }
